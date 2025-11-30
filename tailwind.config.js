@@ -28,7 +28,7 @@ module.exports = {
             },
             fontFamily: {
                 // Add your fonts
-                sans: ["Inter", "sans-serif"],
+                sans: ["Sora", "sans-serif"],
                 fa: "Font Awesome 5 Free",
             },
             colors: {
