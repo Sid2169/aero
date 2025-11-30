@@ -2,7 +2,9 @@ import dayjs from "dayjs";
 import loadingAnimation from "../assets/loading.gif";
 import getWeather from "./WeatherApi";
 import iconPack from "./Icon";
-import getBackgroundImageUrl from "./Util";
+import { getBackgroundImageUrl, getSummaryForecast, getUnitKey } from "./Util";
+
+const UNIT_SUFFIX = "c";
 
 const getIcon = ({ current }) => {
     let iconKey = current.condition.text.toLowerCase().replaceAll(" ", "-");
@@ -10,12 +12,49 @@ const getIcon = ({ current }) => {
     return iconPack[iconKey];
 };
 
-// const Card = function ({current})
+const hourlyDisplay = function hourlyInformationDisplay({ forecast }) {
+    const hourlyForecastDiv = document.createElement("div");
+    hourlyForecastDiv.className =
+        "hourly-forecast-display flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.9]";
+
+    const hourlyData = forecast.forecastday[0].hour;
+    hourlyData.forEach((hour) => {
+        // console.log(dayjs(hour.time).format("h A"));
+        let iconKey = hour.condition.text.toLowerCase().trim();
+        iconKey += hour.is_day ? "-d" : "-n";
+        console.log(iconKey);
+
+        const card = document.createElement("div");
+        card.className = "flex flex-col gap-2";
+
+        const time = document.createElement("p");
+        time.className = "text-white text-xs whitespace-nowrap";
+        time.textContent = dayjs(hour.time).format("h A");
+
+        const icon = document.createElement("div");
+        icon.className = "fill-slate-50 stroke-slate-50 h-10 w-10";
+        icon.innerHTML = iconPack[iconKey];
+
+        const temp = document.createElement("p");
+        temp.className = "text-white text-xs whitespace-nowrap";
+        const currentTemp = Math.round(hour[getUnitKey("temp", UNIT_SUFFIX)]);
+        temp.innerHTML = `${currentTemp} &deg${UNIT_SUFFIX.toUpperCase()}`;
+
+        card.appendChild(time);
+        card.appendChild(icon);
+        card.appendChild(temp);
+
+        hourlyForecastDiv.appendChild(card);
+    });
+
+    return hourlyForecastDiv;
+};
 
 const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
+    const todaysSummary = getSummaryForecast(data);
+
     const container = document.createElement("div");
-    container.className =
-        "grid grid-cols-1 backdrop-brightness-[.85] px-2 pt-8 rounded-lg ";
+    container.className = "grid grid-cols-1 px-2 pt-8 rounded-lg ";
 
     // Div for locaiton, date and time display
     const localeDiv = document.createElement("div");
@@ -53,19 +92,25 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
     // Div containing primary weather information
     const primaryInformationDiv = document.createElement("div");
     primaryInformationDiv.className =
-        "flex gap-1 justify-center items-center py-12";
+        "flex flex-col gap-1 justify-center items-center py-12";
+
+    const currentDiv = document.createElement("div");
+    currentDiv.className = "flex gap-1 justify-center items-center";
+
     const iconDiv = document.createElement("div");
     const weatherIcon = getIcon(data);
     iconDiv.innerHTML = weatherIcon;
     iconDiv.className = "w-36 h-36 fill-white";
-    primaryInformationDiv.appendChild(iconDiv);
+    currentDiv.appendChild(iconDiv);
 
     const textDiv = document.createElement("div");
     textDiv.className = "flex flex-col";
 
     const currentTemp = document.createElement("p");
     currentTemp.className = "text-white font-medium text-6xl";
-    currentTemp.textContent = Math.round(data.current.temp_c);
+    currentTemp.textContent = Math.round(
+        data.current[getUnitKey("temp", UNIT_SUFFIX)]
+    );
     const tempUnitSpan = document.createElement("span");
     tempUnitSpan.innerHTML = "  &degC";
     tempUnitSpan.className = "text-white font-medium text-2xl";
@@ -76,15 +121,23 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
     weatherText.textContent = data.current.condition.text;
     weatherText.className = "text-white font-light text-2xl";
     textDiv.appendChild(weatherText);
-    primaryInformationDiv.appendChild(textDiv);
+    currentDiv.appendChild(textDiv);
+    primaryInformationDiv.appendChild(currentDiv);
+
+    const highLowTemp = document.createElement("p");
+    highLowTemp.className = "text-white";
+    const todaysHigh = Math.round(
+        todaysSummary[getUnitKey("maxtemp", UNIT_SUFFIX)]
+    );
+    const todaysLow = Math.round(
+        todaysSummary[getUnitKey("mintemp", UNIT_SUFFIX)]
+    );
+    highLowTemp.innerHTML = `High: ${todaysHigh} &deg${UNIT_SUFFIX.toUpperCase()}, Low: ${todaysLow} &deg${UNIT_SUFFIX.toUpperCase()}`;
+    primaryInformationDiv.appendChild(highLowTemp);
 
     container.appendChild(primaryInformationDiv);
 
-    // const secondaryInformationDiv = document.createElement("div");
-
-    // const feelsLikeDiv = document.createElement("div");
-    // feelsLike;
-
+    container.appendChild(hourlyDisplay(data));
     return container;
 };
 
@@ -104,7 +157,7 @@ export default function Render() {
         bgContainer.className = "relative h-lvh";
 
         // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
-        bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.1) 100%), url(${backgroundImageUrl}) no-repeat center center`;
+        bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.1) 50%), url(${backgroundImageUrl}) no-repeat center center`;
         bgContainer.style.backgroundSize = "cover";
         loading.style.display = "none";
 
