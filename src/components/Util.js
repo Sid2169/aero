@@ -10,7 +10,9 @@ export function getBackgroundImageUrl({ current }) {
     url += `${timeOfDay}/`;
     const suffix = tempHeight < 768 ? "sm" : "lg";
     const width = tempHeight < 768 ? 401 : 1080;
-    url += `${current.condition.text.toLowerCase()}-${suffix}.jpeg?tr=w-${width}`;
+    url += `${current.condition.text
+        .toLowerCase()
+        .replaceAll(" ", "-")}-${suffix}.jpeg?tr=w-${width}`;
     return url;
 }
 
