@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import loadingAnimation from "../assets/loading.gif";
 import getWeather from "./WeatherApi";
 import iconPack from "./Icon";
+import getBackgroundImageUrl from "./Util";
 
 const getIcon = ({ current }) => {
     let iconKey = current.condition.text.toLowerCase().replaceAll(" ", "-");
@@ -17,30 +18,6 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
     const primaryInformationDiv = document.createElement("div");
     primaryInformationDiv.className =
         "flex flex-col gap-1 justify-start items-start";
-
-    const locationDiv = document.createElement("div");
-    locationDiv.className = "flex items-center gap-2";
-    const locIcon = document.createElement("div");
-    locIcon.className = "w-4 h-4 fill-slate-100";
-    locIcon.innerHTML = iconPack.location;
-    locationDiv.appendChild(locIcon);
-    const locationText = document.createElement("p");
-    locationText.textContent = `${data.location.name}, ${data.location.country}`;
-    locationText.className = "text-slate-100 text-sm";
-    locationDiv.appendChild(locationText);
-    primaryInformationDiv.appendChild(locationDiv);
-
-    const dateDiv = document.createElement("div");
-    dateDiv.className = "flex text-white text-xs ps-6";
-    const dayOfWeek = dayjs().format("dddd");
-    const date = dayjs().format("D MMM, YYYY");
-    dateDiv.textContent = `${dayOfWeek} | ${date}`;
-    primaryInformationDiv.appendChild(dateDiv);
-
-    const timeDiv = document.createElement("div");
-    timeDiv.textContent = dayjs().format("h:m a");
-    timeDiv.className = "text-white text-xs ps-6";
-    primaryInformationDiv.appendChild(timeDiv);
 
     const iconDiv = document.createElement("div");
     const weatherIcon = getIcon(data);
@@ -63,7 +40,37 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
     weatherText.className = "text-white font-medium text-2xl ps-4";
     primaryInformationDiv.appendChild(weatherText);
 
+    const locationDiv = document.createElement("div");
+    locationDiv.className = "flex items-center gap-2 mt-16";
+    const locIcon = document.createElement("div");
+    locIcon.className = "w-4 h-4 fill-slate-100";
+    locIcon.innerHTML = iconPack.location;
+    locationDiv.appendChild(locIcon);
+    const locationText = document.createElement("p");
+    locationText.textContent = `${data.location.name}, ${data.location.country}`;
+    locationText.className = "text-slate-100 text-sm";
+    locationDiv.appendChild(locationText);
+    primaryInformationDiv.appendChild(locationDiv);
+
+    const dateDiv = document.createElement("div");
+    dateDiv.className = "flex text-white text-xs ps-6";
+    const dayOfWeek = dayjs().format("dddd");
+    const date = dayjs().format("D MMM, YYYY");
+    dateDiv.textContent = `${dayOfWeek} | ${date}`;
+    primaryInformationDiv.appendChild(dateDiv);
+
+    const timeDiv = document.createElement("div");
+    timeDiv.textContent = dayjs().format("h:m a");
+    timeDiv.className = "text-white text-xs ps-6";
+    primaryInformationDiv.appendChild(timeDiv);
+
     container.appendChild(primaryInformationDiv);
+
+    // const secondaryInformationDiv = document.createElement("div");
+
+    // const feelsLikeDiv = document.createElement("div");
+    // feelsLike;
+
     return container;
 };
 
@@ -78,10 +85,12 @@ export default function Render() {
 
     getWeather().then((data) => {
         console.log(data);
+        const backgroundImageUrl = getBackgroundImageUrl(data);
+        console.log(backgroundImageUrl);
         bgContainer.className = "relative h-lvh";
 
-        bgContainer.style.background =
-            "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.1) 100%), url('https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401') no-repeat center center";
+        // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
+        bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.1) 100%), url(${backgroundImageUrl}) no-repeat center center`;
         bgContainer.style.backgroundSize = "cover";
         loading.style.display = "none";
 
