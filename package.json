@@ -37,6 +37,7 @@
     },
     "dependencies": {
         "dayjs": "^1.11.10",
+        "dotenv-webpack": "^8.1.0",
         "nanoid": "^5.0.6"
     }
 }
