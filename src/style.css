@@ -14,3 +14,7 @@ button {
 .hourly-forecast-display::-webkit-scrollbar {
     display: none !important; /* Safari and Chrome */
 }
+
+.hourly-forecast-display {
+    -webkit-overflow-scrolling: touch;
+}
