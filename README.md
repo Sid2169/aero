@@ -313,3 +313,4 @@ If you found this useful, consider giving it a ⭐
 - **AQI cards** — Document any manual steps that cannot be automated.
 - **error states** — Keep the terminology consistent with the rest of the project.
 - **AQI cards** — Update the documentation if the visible behavior changes.
+- **accessibility** — Document any manual steps that cannot be automated.
