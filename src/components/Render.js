@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import loadingAnimation from "../assets/loading.gif";
 import getWeather from "./WeatherApi";
 import iconPack from "./Icon";
+import getBackgroundImageUrl from "./Util";
 
 const getIcon = ({ current }) => {
     let iconKey = current.condition.text.toLowerCase().replaceAll(" ", "-");
@@ -78,6 +79,12 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
     primaryInformationDiv.appendChild(textDiv);
 
     container.appendChild(primaryInformationDiv);
+
+    // const secondaryInformationDiv = document.createElement("div");
+
+    // const feelsLikeDiv = document.createElement("div");
+    // feelsLike;
+
     return container;
 };
 
@@ -92,10 +99,12 @@ export default function Render() {
 
     getWeather().then((data) => {
         console.log(data);
+        const backgroundImageUrl = getBackgroundImageUrl(data);
+        console.log(backgroundImageUrl);
         bgContainer.className = "relative h-lvh";
 
-        bgContainer.style.background =
-            "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.1) 100%), url('https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401') no-repeat center center";
+        // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
+        bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.1) 100%), url(${backgroundImageUrl}) no-repeat center center`;
         bgContainer.style.backgroundSize = "cover";
         loading.style.display = "none";
 
