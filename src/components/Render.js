@@ -3,6 +3,7 @@ import loadingAnimation from "../assets/loading.gif";
 import getWeather from "./WeatherApi";
 import iconPack from "./Icon";
 import { getBackgroundImageUrl, getSummaryForecast, getUnitKey } from "./Util";
+import getAssets from "./WeatherCode";
 
 const UNIT_SUFFIX = "c";
 
@@ -20,13 +21,14 @@ const hourlyscale = function hourlyInformationscale({ forecast }) {
 
     const hourlyData = forecast.forecastday[0].hour;
     hourlyData.forEach((hour) => {
+        const assets = getAssets(hour);
         // console.log(dayjs(hour.time).format("h A"));
-        let iconKey = hour.condition.text
-            .toLowerCase()
-            .trim()
-            .replaceAll(" ", "-");
+        // let iconKey = hour.condition.text
+        //     .toLowerCase()
+        //     .trim()
+        //     .replaceAll(" ", "-");
 
-        iconKey += hour.is_day ? "-d" : "-n";
+        // iconKey += hour.is_day ? "-d" : "-n";
         // console.log(iconKey);
 
         const card = document.createElement("div");
@@ -39,7 +41,7 @@ const hourlyscale = function hourlyInformationscale({ forecast }) {
 
         const icon = document.createElement("div");
         icon.className = "fill-slate-50 stroke-slate-50 h-10 w-10";
-        icon.innerHTML = iconPack[iconKey];
+        icon.innerHTML = assets.icon;
 
         const temp = document.createElement("p");
         temp.className = "text-white text-xs whitespace-nowrap";
@@ -56,11 +58,11 @@ const hourlyscale = function hourlyInformationscale({ forecast }) {
     return hourlyForecastDiv;
 };
 
-const scaleCurrentWeather = function scaleCurrentWeatherInformation(data) {
+const displayCurrentWeather = function displayurrentWeatherInformation(data) {
     const todaysSummary = getSummaryForecast(data);
 
     const container = document.createElement("div");
-    container.className = "grid grid-cols-1 px-2 pt-8 rounded-lg ";
+    container.className = "grid grid-cols-1 px-2 pt-8 rounded-lg";
 
     // Div for locaiton, date and time scale
     const localeDiv = document.createElement("div");
@@ -129,12 +131,13 @@ const scaleCurrentWeather = function scaleCurrentWeatherInformation(data) {
         "flex flex-col gap-1 justify-center items-center py-12";
 
     const currentDiv = document.createElement("div");
-    currentDiv.className = "flex gap-1 justify-center items-center";
+    currentDiv.className = "flex gap-6 justify-center items-center";
 
+    const assets = getAssets(data.current);
     const iconDiv = document.createElement("div");
-    const weatherIcon = getIcon(data);
+    const weatherIcon = assets.icon;
     iconDiv.innerHTML = weatherIcon;
-    iconDiv.className = "w-36 h-36 fill-white";
+    iconDiv.className = "w-28 h-28 fill-white";
     currentDiv.appendChild(iconDiv);
 
     const textDiv = document.createElement("div");
@@ -152,7 +155,7 @@ const scaleCurrentWeather = function scaleCurrentWeatherInformation(data) {
     textDiv.appendChild(currentTemp);
 
     const weatherText = document.createElement("p");
-    weatherText.textContent = data.current.condition.text;
+    weatherText.textContent = assets.text;
     weatherText.className = "text-white font-light text-2xl";
     textDiv.appendChild(weatherText);
     currentDiv.appendChild(textDiv);
@@ -269,8 +272,11 @@ export default function Render(location) {
 
     getWeather(location).then((data) => {
         console.log(data);
-        const backgroundImageUrl = getBackgroundImageUrl(data);
-        console.log(backgroundImageUrl);
+        // const backgroundImageUrl = getBackgroundImageUrl(data);
+        const assets = getAssets(data.current);
+        const backgroundImageUrl = assets.bgUrl;
+        // console.log(assets);
+        // console.log(backgroundImageUrl);
         bgContainer.className = "relative h-lvh";
 
         // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
@@ -280,7 +286,7 @@ export default function Render(location) {
 
         const container = document.createElement("div");
         container.className = "container";
-        container.appendChild(scaleCurrentWeather(data));
+        container.appendChild(displayCurrentWeather(data));
 
         const cards = document.createElement("div");
         cards.className = "grid grid-cols-3 gap-x-10 gap-y-4 mt-16 mx-2";
