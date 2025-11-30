@@ -399,3 +399,4 @@ If you found this useful, consider giving it a ⭐
 - **7-day forecast** — Include a short reproduction step when reporting issues.
 - **WeatherAPI requests** — Keep the related setup steps aligned with the current scripts.
 - **Webpack configuration** — Check the required environment values before deploying.
+- **accessibility** — Check the fallback when geolocation permission is denied.
