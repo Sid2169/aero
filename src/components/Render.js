@@ -170,15 +170,23 @@ export default function Render() {
         container.appendChild(displayCurrentWeather(data));
         bgContainer.appendChild(container);
 
-        const hourNow = dayjs().format("H");
-
-        window.addEventListener("load", () => {
-            // console.log("running");
-            document.querySelector("#hourly-forecast").scrollLeft +=
+        const initHourlyForecastScroll = () => {
+            const hourNow = dayjs().format("H");
+            document.querySelector("#hourly-forecast").scrollLeft =
                 80 * hourNow;
-        });
+        };
+
+        if (document.readyState === "loading") {
+            document.addEventListener(
+                "DOMContentLoaded",
+                initHourlyForecastScroll
+            );
+        } else {
+            initHourlyForecastScroll();
+        }
     });
 
     bgContainer.appendChild(loading);
+
     return bgContainer;
 }
