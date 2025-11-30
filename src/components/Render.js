@@ -14,18 +14,20 @@ const getIcon = ({ current }) => {
 
 const hourlyDisplay = function hourlyInformationDisplay({ forecast }) {
     const hourlyForecastDiv = document.createElement("div");
+    hourlyForecastDiv.id = "hourly-forecast";
     hourlyForecastDiv.className =
-        "hourly-forecast-display flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.9]";
+        "hourly-forecast-display flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.8]";
 
     const hourlyData = forecast.forecastday[0].hour;
     hourlyData.forEach((hour) => {
         // console.log(dayjs(hour.time).format("h A"));
         let iconKey = hour.condition.text.toLowerCase().trim();
         iconKey += hour.is_day ? "-d" : "-n";
-        console.log(iconKey);
+        // console.log(iconKey);
 
         const card = document.createElement("div");
         card.className = "flex flex-col gap-2";
+        // card.id = dayjs(hour.time).format("h A");
 
         const time = document.createElement("p");
         time.className = "text-white text-xs whitespace-nowrap";
@@ -137,7 +139,9 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
 
     container.appendChild(primaryInformationDiv);
 
-    container.appendChild(hourlyDisplay(data));
+    const hourlyForecast = hourlyDisplay(data);
+    container.appendChild(hourlyForecast);
+
     return container;
 };
 
@@ -165,6 +169,14 @@ export default function Render() {
         container.className = "container";
         container.appendChild(displayCurrentWeather(data));
         bgContainer.appendChild(container);
+
+        const hourNow = dayjs().format("H");
+
+        window.addEventListener("load", () => {
+            // console.log("running");
+            document.querySelector("#hourly-forecast").scrollLeft +=
+                80 * hourNow;
+        });
     });
 
     bgContainer.appendChild(loading);
