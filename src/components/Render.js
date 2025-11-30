@@ -12,11 +12,11 @@ const getIcon = ({ current }) => {
     return iconPack[iconKey];
 };
 
-const hourlyDisplay = function hourlyInformationDisplay({ forecast }) {
+const hourlyscale = function hourlyInformationscale({ forecast }) {
     const hourlyForecastDiv = document.createElement("div");
     hourlyForecastDiv.id = "hourly-forecast";
     hourlyForecastDiv.className =
-        "hourly-forecast-display flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.8]";
+        "hourly-forecast-scale flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.8]";
 
     const hourlyData = forecast.forecastday[0].hour;
     hourlyData.forEach((hour) => {
@@ -56,15 +56,20 @@ const hourlyDisplay = function hourlyInformationDisplay({ forecast }) {
     return hourlyForecastDiv;
 };
 
-const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
+const scaleCurrentWeather = function scaleCurrentWeatherInformation(data) {
     const todaysSummary = getSummaryForecast(data);
 
     const container = document.createElement("div");
     container.className = "grid grid-cols-1 px-2 pt-8 rounded-lg ";
 
-    // Div for locaiton, date and time display
+    // Div for locaiton, date and time scale
     const localeDiv = document.createElement("div");
-    localeDiv.className = "flex justify-between";
+    localeDiv.className = "flex gap-4 relative";
+
+    const searchLocationInput = document.createElement("input");
+    searchLocationInput.className =
+        "hidden absolute border-2 border-white rounded-full w-full h-12 bg-black bg-opacity-60 text-white text-sm px-4";
+    localeDiv.appendChild(searchLocationInput);
 
     const locationDiv = document.createElement("div");
     locationDiv.className = "flex items-start gap-2";
@@ -77,6 +82,14 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     locationText.className = "text-slate-100 text-sm";
     locationDiv.appendChild(locationText);
     localeDiv.appendChild(locationDiv);
+
+    const searchDiv = document.createElement("div");
+    searchDiv.className = "fill-slate-50 mr-auto";
+    const searchButton = document.createElement("button");
+    searchButton.className = "w-4 h-4 fill-slate-50";
+    searchButton.innerHTML = iconPack.searchLocation;
+    searchDiv.appendChild(searchButton);
+    localeDiv.appendChild(searchDiv);
 
     const dateTimeDiv = document.createElement("div");
     dateTimeDiv.className = "flex flex-col";
@@ -94,6 +107,21 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     dateTimeDiv.appendChild(timeDiv);
     localeDiv.appendChild(dateTimeDiv);
     container.appendChild(localeDiv);
+
+    searchButton.addEventListener("click", () => {
+        searchLocationInput.style.display = "block";
+        searchLocationInput.focus();
+        searchButton.style.scale = "0";
+        locationDiv.style.scale = "0";
+        dateTimeDiv.style.scale = "0";
+    });
+
+    searchLocationInput.addEventListener("change", () => {
+        console.log("location changed");
+        const root = document.querySelector("#root");
+        root.innerHTML = "";
+        root.appendChild(Render(searchLocationInput.value));
+    });
 
     // Div containing primary weather information
     const primaryInformationDiv = document.createElement("div");
@@ -143,7 +171,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
 
     container.appendChild(primaryInformationDiv);
 
-    const hourlyForecast = hourlyDisplay(data);
+    const hourlyForecast = hourlyscale(data);
     container.appendChild(hourlyForecast);
 
     return container;
@@ -165,7 +193,7 @@ class Card {
 
         const attributeName = document.createElement("p");
         attributeName.className = "text-white font-light text-xs";
-        attributeName.textContent = this.displayText;
+        attributeName.textContent = this.scaleText;
 
         card.appendChild(icon);
         card.appendChild(text);
@@ -178,7 +206,7 @@ class FeelsLikeCard extends Card {
     constructor({ current }) {
         super();
         this.iconKey = "feelsLike";
-        this.displayText = "Feels Like";
+        this.scaleText = "Feels Like";
         this.text = `${Math.round(
             current[getUnitKey("feelslike", UNIT_SUFFIX)]
         )} &deg${UNIT_SUFFIX.toUpperCase()}`;
@@ -189,7 +217,7 @@ class HumidityCard extends Card {
     constructor({ current }) {
         super();
         this.iconKey = "humidity";
-        this.displayText = "Humidity";
+        this.scaleText = "Humidity";
         this.text = `${Math.round(current.humidity)} %`;
     }
 }
@@ -198,7 +226,7 @@ class WindSpeedCard extends Card {
     constructor({ current }) {
         super();
         this.iconKey = "windSpeed";
-        this.displayText = "Wind";
+        this.scaleText = "Wind";
         this.text = `${Math.round(current.wind_kph)} KM/h`;
     }
 }
@@ -207,7 +235,7 @@ class VisibilityCard extends Card {
     constructor({ current }) {
         super();
         this.iconKey = "visibility";
-        this.displayText = "Visibility";
+        this.scaleText = "Visibility";
         this.text = `${Math.round(current.vis_km)} KM`;
     }
 }
@@ -216,7 +244,7 @@ class ChanceOfRainCard extends Card {
     constructor({ forecast }) {
         super();
         this.iconKey = "chanceOfRain";
-        this.displayText = "Chance of Rain";
+        this.scaleText = "Chance of Rain";
         this.text = `${forecast.forecastday[0].day.daily_chance_of_rain} %`;
     }
 }
@@ -225,12 +253,12 @@ class UVIndexCard extends Card {
     constructor({ current }) {
         super();
         this.iconKey = "uvIndex";
-        this.displayText = "UV Index";
+        this.scaleText = "UV Index";
         this.text = `${current.uv}`;
     }
 }
 
-export default function Render() {
+export default function Render(location) {
     const bgContainer = document.createElement("div");
     bgContainer.className = "relative h-lvh bg-[#1F322D] bg-cover";
 
@@ -239,7 +267,7 @@ export default function Render() {
         "absolute top-[50%] -translate-y-1/2 left-[50%] -translate-x-1/2 w-[300px]";
     loading.src = loadingAnimation;
 
-    getWeather().then((data) => {
+    getWeather(location).then((data) => {
         console.log(data);
         const backgroundImageUrl = getBackgroundImageUrl(data);
         console.log(backgroundImageUrl);
@@ -248,11 +276,11 @@ export default function Render() {
         // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
         bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.1) 50%), url(${backgroundImageUrl}) no-repeat center center`;
         bgContainer.style.backgroundSize = "cover";
-        loading.style.display = "none";
+        loading.style.scale = "0";
 
         const container = document.createElement("div");
         container.className = "container";
-        container.appendChild(displayCurrentWeather(data));
+        container.appendChild(scaleCurrentWeather(data));
 
         const cards = document.createElement("div");
         cards.className = "grid grid-cols-3 gap-x-10 gap-y-4 mt-16 mx-2";
