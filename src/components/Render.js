@@ -21,7 +21,11 @@ const hourlyDisplay = function hourlyInformationDisplay({ forecast }) {
     const hourlyData = forecast.forecastday[0].hour;
     hourlyData.forEach((hour) => {
         // console.log(dayjs(hour.time).format("h A"));
-        let iconKey = hour.condition.text.toLowerCase().trim();
+        let iconKey = hour.condition.text
+            .toLowerCase()
+            .trim()
+            .replaceAll(" ", "-");
+
         iconKey += hour.is_day ? "-d" : "-n";
         // console.log(iconKey);
 
@@ -52,7 +56,7 @@ const hourlyDisplay = function hourlyInformationDisplay({ forecast }) {
     return hourlyForecastDiv;
 };
 
-const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
+const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     const todaysSummary = getSummaryForecast(data);
 
     const container = document.createElement("div");
@@ -145,6 +149,87 @@ const displayCurrentWeather = function displayCurrentWeaterInformation(data) {
     return container;
 };
 
+class Card {
+    cardContainer() {
+        const card = document.createElement("div");
+        card.className =
+            "flex flex-col px-4 py-4 rounded-xl  aspect-square justify-center items-center backdrop-brightness-75 backdrop-blur-md";
+
+        const icon = document.createElement("div");
+        icon.className = "w-6 h-6 fill-white";
+        icon.innerHTML = iconPack[this.iconKey];
+
+        const text = document.createElement("p");
+        text.className = "text-white text-lg font-medium";
+        text.innerHTML = this.text;
+
+        const attributeName = document.createElement("p");
+        attributeName.className = "text-white font-light text-xs";
+        attributeName.textContent = this.displayText;
+
+        card.appendChild(icon);
+        card.appendChild(text);
+        card.appendChild(attributeName);
+        return card;
+    }
+}
+
+class FeelsLikeCard extends Card {
+    constructor({ current }) {
+        super();
+        this.iconKey = "feelsLike";
+        this.displayText = "Feels Like";
+        this.text = `${Math.round(
+            current[getUnitKey("feelslike", UNIT_SUFFIX)]
+        )} &deg${UNIT_SUFFIX.toUpperCase()}`;
+    }
+}
+
+class HumidityCard extends Card {
+    constructor({ current }) {
+        super();
+        this.iconKey = "humidity";
+        this.displayText = "Humidity";
+        this.text = `${Math.round(current.humidity)} %`;
+    }
+}
+
+class WindSpeedCard extends Card {
+    constructor({ current }) {
+        super();
+        this.iconKey = "windSpeed";
+        this.displayText = "Wind";
+        this.text = `${Math.round(current.wind_kph)} KM/h`;
+    }
+}
+
+class VisibilityCard extends Card {
+    constructor({ current }) {
+        super();
+        this.iconKey = "visibility";
+        this.displayText = "Visibility";
+        this.text = `${Math.round(current.vis_km)} KM`;
+    }
+}
+
+class ChanceOfRainCard extends Card {
+    constructor({ forecast }) {
+        super();
+        this.iconKey = "chanceOfRain";
+        this.displayText = "Chance of Rain";
+        this.text = `${forecast.forecastday[0].day.daily_chance_of_rain} %`;
+    }
+}
+
+class UVIndexCard extends Card {
+    constructor({ current }) {
+        super();
+        this.iconKey = "uvIndex";
+        this.displayText = "UV Index";
+        this.text = `${current.uv}`;
+    }
+}
+
 export default function Render() {
     const bgContainer = document.createElement("div");
     bgContainer.className = "relative h-lvh bg-[#1F322D] bg-cover";
@@ -168,6 +253,30 @@ export default function Render() {
         const container = document.createElement("div");
         container.className = "container";
         container.appendChild(displayCurrentWeather(data));
+
+        const cards = document.createElement("div");
+        cards.className = "grid grid-cols-3 gap-x-10 gap-y-4 mt-16 mx-2";
+
+        const feelsLike = new FeelsLikeCard(data);
+        cards.appendChild(feelsLike.cardContainer());
+
+        const humidity = new HumidityCard(data);
+        cards.appendChild(humidity.cardContainer());
+
+        const windSpeed = new WindSpeedCard(data);
+        cards.appendChild(windSpeed.cardContainer());
+
+        const visibility = new VisibilityCard(data);
+        cards.appendChild(visibility.cardContainer());
+
+        const chanceOfRain = new ChanceOfRainCard(data);
+        cards.appendChild(chanceOfRain.cardContainer());
+
+        const uvIndex = new UVIndexCard(data);
+        cards.appendChild(uvIndex.cardContainer());
+
+        container.appendChild(cards);
+
         bgContainer.appendChild(container);
 
         const initHourlyForecastScroll = () => {
