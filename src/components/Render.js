@@ -16,7 +16,7 @@ const hourlyscale = function hourlyInformationscale({ forecast }) {
     const hourlyForecastDiv = document.createElement("div");
     hourlyForecastDiv.id = "hourly-forecast";
     hourlyForecastDiv.className =
-        "hourly-forecast-scale flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.8]";
+        "hourly-forecast-display flex gap-10 rounded-lg px-4 py-2 overflow-x-scroll backdrop-blur-sm backdrop-brightness-[.8]";
 
     const hourlyData = forecast.forecastday[0].hour;
     hourlyData.forEach((hour) => {
@@ -102,7 +102,7 @@ const scaleCurrentWeather = function scaleCurrentWeatherInformation(data) {
     dateTimeDiv.appendChild(dateDiv);
 
     const timeDiv = document.createElement("div");
-    timeDiv.textContent = dayjs().format("h:m a");
+    timeDiv.textContent = dayjs().format("h:mm a");
     timeDiv.className = "text-white text-xs ps-6";
     dateTimeDiv.appendChild(timeDiv);
     localeDiv.appendChild(dateTimeDiv);
