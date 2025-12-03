@@ -99,12 +99,12 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
     const dateDiv = document.createElement("div");
     dateDiv.className = "flex text-white text-xs ps-6";
     const dayOfWeek = dayjs().format("dddd");
-    const date = dayjs().format("D MMM, YYYY");
+    const date = dayjs(data.location.localtime).format("D MMM, YYYY"); // dayjs().format("D MMM, YYYY");
     dateDiv.textContent = `${dayOfWeek} | ${date}`;
     dateTimeDiv.appendChild(dateDiv);
 
     const timeDiv = document.createElement("div");
-    timeDiv.textContent = dayjs().format("h:mm a");
+    timeDiv.textContent = dayjs(data.location.localtime).format("h:mm a"); // dayjs().format("h:mm a");
     timeDiv.className = "text-white text-xs ps-6";
     dateTimeDiv.appendChild(timeDiv);
     localeDiv.appendChild(dateTimeDiv);
