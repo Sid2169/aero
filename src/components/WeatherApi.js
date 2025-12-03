@@ -36,3 +36,12 @@ export default async function getWeather(location) {
     const weatherData = await data;
     return weatherData;
 }
+
+export async function getAutoCompleteResults(searchTerm) {
+    const response = await fetch(
+        `https://api.weatherapi.com/v1/search.json?key=${process.env.API_KEY}&q=${searchTerm}`
+    );
+    const data = await response.json();
+    const results = await data;
+    return results;
+}
