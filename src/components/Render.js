@@ -13,7 +13,10 @@ const getIcon = ({ current }) => {
     return iconPack[iconKey];
 };
 
-const hourlyscale = function hourlyInformationscale({ forecast }) {
+const hourlyForecastDisplay = function hourlyInformationscale({
+    forecast,
+    location,
+}) {
     const hourlyForecastDiv = document.createElement("div");
     hourlyForecastDiv.id = "hourly-forecast";
     hourlyForecastDiv.className =
@@ -22,22 +25,19 @@ const hourlyscale = function hourlyInformationscale({ forecast }) {
     const hourlyData = forecast.forecastday[0].hour;
     hourlyData.forEach((hour) => {
         const assets = getAssets(hour);
-        // console.log(dayjs(hour.time).format("h A"));
-        // let iconKey = hour.condition.text
-        //     .toLowerCase()
-        //     .trim()
-        //     .replaceAll(" ", "-");
-
-        // iconKey += hour.is_day ? "-d" : "-n";
-        // console.log(iconKey);
 
         const card = document.createElement("div");
         card.className = "flex flex-col gap-2";
-        // card.id = dayjs(hour.time).format("h A");
 
         const time = document.createElement("p");
         time.className = "text-white text-xs whitespace-nowrap";
         time.textContent = dayjs(hour.time).format("h A");
+
+        if (
+            dayjs(hour.time).format("H") ===
+            dayjs(location.localtime).format("H")
+        )
+            time.textContent = "Now";
 
         const icon = document.createElement("div");
         icon.className = "fill-slate-50 stroke-slate-50 h-10 w-10";
@@ -58,7 +58,7 @@ const hourlyscale = function hourlyInformationscale({ forecast }) {
     return hourlyForecastDiv;
 };
 
-const displayCurrentWeather = function displayurrentWeatherInformation(data) {
+const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     const todaysSummary = getSummaryForecast(data);
 
     const container = document.createElement("div");
@@ -129,7 +129,6 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
         }
 
         getAutoCompleteResults(searchLocationInput.value).then((results) => {
-            // console.log(results.length);
             autoCompleteDiv.innerHTML = "";
 
             const placeContainer = document.createElement("div");
@@ -163,13 +162,6 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
             autoCompleteDiv.appendChild(placeContainer);
         });
     });
-
-    // searchLocationInput.addEventListener("change", () => {
-    //     console.log("location changed");
-    //     const root = document.querySelector("#root");
-    //     root.innerHTML = "";
-    //     root.appendChild(Render(searchLocationInput.value));
-    // });
 
     // Div containing primary weather information
     const primaryInformationDiv = document.createElement("div");
@@ -208,7 +200,7 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
     primaryInformationDiv.appendChild(currentDiv);
 
     const highLowTemp = document.createElement("p");
-    highLowTemp.className = "text-white";
+    highLowTemp.className = "text-white mt-8";
     const todaysHigh = Math.round(
         todaysSummary[getUnitKey("maxtemp", UNIT_SUFFIX)]
     );
@@ -220,7 +212,7 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
 
     container.appendChild(primaryInformationDiv);
 
-    const hourlyForecast = hourlyscale(data);
+    const hourlyForecast = hourlyForecastDisplay(data);
     container.appendChild(hourlyForecast);
 
     return container;
@@ -318,11 +310,9 @@ export default function Render(location) {
 
     getWeather(location).then((data) => {
         console.log(data);
-        // const backgroundImageUrl = getBackgroundImageUrl(data);
         const assets = getAssets(data.current);
         const backgroundImageUrl = assets.bgUrl;
-        // console.log(assets);
-        // console.log(backgroundImageUrl);
+        console.log(backgroundImageUrl);
         bgContainer.className = "relative h-lvh";
 
         // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
@@ -331,7 +321,8 @@ export default function Render(location) {
         loading.style.scale = "0";
 
         const container = document.createElement("div");
-        container.className = "container";
+        container.className =
+            "container w-full max-w-md md:max-w-lg lg:max-w-2xl";
         container.appendChild(displayCurrentWeather(data));
 
         const cards = document.createElement("div");
@@ -360,7 +351,8 @@ export default function Render(location) {
         bgContainer.appendChild(container);
 
         const initHourlyForecastScroll = () => {
-            const hourNow = dayjs().format("H");
+            // const hourNow = dayjs().format("H");
+            const hourNow = dayjs(data.location.localtime).format("H");
             document.querySelector("#hourly-forecast").scrollLeft =
                 80 * hourNow;
         };
