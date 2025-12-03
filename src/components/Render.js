@@ -4,16 +4,19 @@ import getWeather, { getAutoCompleteResults } from "./WeatherApi";
 import iconPack from "./Icon";
 import { getBackgroundImageUrl, getSummaryForecast, getUnitKey } from "./Util";
 import getAssets from "./WeatherCode";
+import {
+    FeelsLikeCard,
+    HumidityCard,
+    WindSpeedCard,
+    VisibilityCard,
+    ChanceOfRainCard,
+    UVIndexCard,
+} from "./Card";
 
 const UNIT_SUFFIX = "c";
 
-const getIcon = ({ current }) => {
-    let iconKey = current.condition.text.toLowerCase().replaceAll(" ", "-");
-    iconKey = current.is_day ? (iconKey += "-d") : (iconKey += "-n");
-    return iconPack[iconKey];
-};
 
-const hourlyForecastDisplay = function hourlyInformationscale({
+const hourlyForecastDisplay = function hourlyInformationDisplay({
     forecast,
     location,
 }) {
@@ -218,87 +221,6 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     return container;
 };
 
-class Card {
-    cardContainer() {
-        const card = document.createElement("div");
-        card.className =
-            "flex flex-col px-4 py-4 rounded-xl  aspect-square justify-center items-center backdrop-brightness-75 backdrop-blur-md";
-
-        const icon = document.createElement("div");
-        icon.className = "w-6 h-6 fill-white";
-        icon.innerHTML = iconPack[this.iconKey];
-
-        const text = document.createElement("p");
-        text.className = "text-white text-lg font-medium";
-        text.innerHTML = this.text;
-
-        const attributeName = document.createElement("p");
-        attributeName.className = "text-white font-light text-xs";
-        attributeName.textContent = this.scaleText;
-
-        card.appendChild(icon);
-        card.appendChild(text);
-        card.appendChild(attributeName);
-        return card;
-    }
-}
-
-class FeelsLikeCard extends Card {
-    constructor({ current }) {
-        super();
-        this.iconKey = "feelsLike";
-        this.scaleText = "Feels Like";
-        this.text = `${Math.round(
-            current[getUnitKey("feelslike", UNIT_SUFFIX)]
-        )} &deg${UNIT_SUFFIX.toUpperCase()}`;
-    }
-}
-
-class HumidityCard extends Card {
-    constructor({ current }) {
-        super();
-        this.iconKey = "humidity";
-        this.scaleText = "Humidity";
-        this.text = `${Math.round(current.humidity)} %`;
-    }
-}
-
-class WindSpeedCard extends Card {
-    constructor({ current }) {
-        super();
-        this.iconKey = "windSpeed";
-        this.scaleText = "Wind";
-        this.text = `${Math.round(current.wind_kph)} KM/h`;
-    }
-}
-
-class VisibilityCard extends Card {
-    constructor({ current }) {
-        super();
-        this.iconKey = "visibility";
-        this.scaleText = "Visibility";
-        this.text = `${Math.round(current.vis_km)} KM`;
-    }
-}
-
-class ChanceOfRainCard extends Card {
-    constructor({ forecast }) {
-        super();
-        this.iconKey = "chanceOfRain";
-        this.scaleText = "Chance of Rain";
-        this.text = `${forecast.forecastday[0].day.daily_chance_of_rain} %`;
-    }
-}
-
-class UVIndexCard extends Card {
-    constructor({ current }) {
-        super();
-        this.iconKey = "uvIndex";
-        this.scaleText = "UV Index";
-        this.text = `${current.uv}`;
-    }
-}
-
 export default function Render(location) {
     const bgContainer = document.createElement("div");
     bgContainer.className = "relative h-lvh bg-[#1F322D] bg-cover";
@@ -328,7 +250,7 @@ export default function Render(location) {
         const cards = document.createElement("div");
         cards.className = "grid grid-cols-3 gap-x-10 gap-y-4 mt-16 mx-2";
 
-        const feelsLike = new FeelsLikeCard(data);
+        const feelsLike = new FeelsLikeCard(data, UNIT_SUFFIX);
         cards.appendChild(feelsLike.cardContainer());
 
         const humidity = new HumidityCard(data);
