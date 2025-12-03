@@ -127,8 +127,8 @@ const weatherCode = {
                 lg: `day/rainy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
             },
             night: {
-                sm: `night/rainy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `night/rainy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                sm: `night/rainy-sm.jpg?tr=w-${SM_BG_WIDTH}`,
+                lg: `night/rainy-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
         },
     },
