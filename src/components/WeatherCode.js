@@ -180,18 +180,18 @@ const weatherCode = {
             night: "replace",
         },
         icon: {
-            day: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.9994 3V7M11.9994 7V17M11.9994 7L8.99943 4M11.9994 7L14.9994 4M11.9994 17V21M11.9994 17L8.99943 20M11.9994 17L14.9994 20M4.20624 7.49999L7.67034 9.49999M7.67034 9.49999L16.3306 14.5M7.67034 9.49999L3.57227 10.5981M7.67034 9.49999L6.57227 5.40191M16.3306 14.5L19.7947 16.5M16.3306 14.5L17.4287 18.5981M16.3306 14.5L20.4287 13.4019M4.2067 16.5L7.6708 14.5M7.6708 14.5L16.3311 9.49999M7.6708 14.5L3.57273 13.4019M7.6708 14.5L6.57273 18.5981M16.3311 9.49999L19.7952 7.49999M16.3311 9.49999L17.4291 5.40192M16.3311 9.49999L20.4291 10.5981" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
-            night: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.9994 3V7M11.9994 7V17M11.9994 7L8.99943 4M11.9994 7L14.9994 4M11.9994 17V21M11.9994 17L8.99943 20M11.9994 17L14.9994 20M4.20624 7.49999L7.67034 9.49999M7.67034 9.49999L16.3306 14.5M7.67034 9.49999L3.57227 10.5981M7.67034 9.49999L6.57227 5.40191M16.3306 14.5L19.7947 16.5M16.3306 14.5L17.4287 18.5981M16.3306 14.5L20.4287 13.4019M4.2067 16.5L7.6708 14.5M7.6708 14.5L16.3311 9.49999M7.6708 14.5L3.57273 13.4019M7.6708 14.5L6.57273 18.5981M16.3311 9.49999L19.7952 7.49999M16.3311 9.49999L17.4291 5.40192M16.3311 9.49999L20.4291 10.5981" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
+            day: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.9994 3V7M11.9994 7V17M11.9994 7L8.99943 4M11.9994 7L14.9994 4M11.9994 17V21M11.9994 17L8.99943 20M11.9994 17L14.9994 20M4.20624 7.49999L7.67034 9.49999M7.67034 9.49999L16.3306 14.5M7.67034 9.49999L3.57227 10.5981M7.67034 9.49999L6.57227 5.40191M16.3306 14.5L19.7947 16.5M16.3306 14.5L17.4287 18.5981M16.3306 14.5L20.4287 13.4019M4.2067 16.5L7.6708 14.5M7.6708 14.5L16.3311 9.49999M7.6708 14.5L3.57273 13.4019M7.6708 14.5L6.57273 18.5981M16.3311 9.49999L19.7952 7.49999M16.3311 9.49999L17.4291 5.40192M16.3311 9.49999L20.4291 10.5981" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
+            night: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.9994 3V7M11.9994 7V17M11.9994 7L8.99943 4M11.9994 7L14.9994 4M11.9994 17V21M11.9994 17L8.99943 20M11.9994 17L14.9994 20M4.20624 7.49999L7.67034 9.49999M7.67034 9.49999L16.3306 14.5M7.67034 9.49999L3.57227 10.5981M7.67034 9.49999L6.57227 5.40191M16.3306 14.5L19.7947 16.5M16.3306 14.5L17.4287 18.5981M16.3306 14.5L20.4287 13.4019M4.2067 16.5L7.6708 14.5M7.6708 14.5L16.3311 9.49999M7.6708 14.5L3.57273 13.4019M7.6708 14.5L6.57273 18.5981M16.3311 9.49999L19.7952 7.49999M16.3311 9.49999L17.4291 5.40192M16.3311 9.49999L20.4291 10.5981" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
         },
-    },
-    bgUrl: {
-        day: {
-            sm: `day/snowy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-            lg: `day/snowy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
-        },
-        night: {
-            sm: `night/snowy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-            lg: `night/snowy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+        bgUrl: {
+            day: {
+                sm: `day/snowy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
+                lg: `day/snowy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+            },
+            night: {
+                sm: `night/snowy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
+                lg: `night/snowy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+            },
         },
     },
 };
@@ -256,6 +256,7 @@ export default function getAssets({ condition, is_day }) {
             weatherAssets = weatherCode.thunder;
             break;
 
+        case 1066:
         case 1114:
         case 1117:
         case 1204:
@@ -277,10 +278,12 @@ export default function getAssets({ condition, is_day }) {
             weatherAssets = weatherCode.clear;
     }
 
+    // console.log(weatherAssets);
+
     const assets = {};
     assets.text = is_day ? weatherAssets.text.day : weatherAssets.text.night;
     assets.icon = is_day ? weatherAssets.icon.day : weatherAssets.icon.night;
-    assets.bgUrl = formatBgUrl(weatherAssets, is_day);
+    assets.bgUrl = formatBgUrl(weatherAssets, is_day);  
 
     if (assets.text === "replace") assets.text = condition.text;
 
