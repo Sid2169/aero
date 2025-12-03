@@ -68,7 +68,7 @@ const weatherCode = {
             },
             night: {
                 sm: `night/partly-cloudy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `night/partly-clear-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                lg: `night/partly-cloudy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
             },
         },
     },
@@ -104,11 +104,11 @@ const weatherCode = {
         bgUrl: {
             day: {
                 sm: `day/mist-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `day/mist-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                lg: `day/mist-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
             night: {
-                sm: `night/mist-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `night/mist-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                sm: `night/mist-sm.jpg?tr=w-${SM_BG_WIDTH}`,
+                lg: `night/mist-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
         },
     },
@@ -138,8 +138,8 @@ const weatherCode = {
             night: "replace",
         },
         icon: {
-            day: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3.38 23H2.277l1.871-4h1.105zm3.936-2l.936-2H7.147l-.935 2zm2.831-2l-1.87 4H9.38l1.871-4zm2.364-1H5.438A3.438 3.438 0 0 1 2 14.562c0-.035.01-.068.01-.103a3.05 3.05 0 0 1 .414-4.848 2.725 2.725 0 0 1 3.337-3.155 3.41 3.41 0 0 1 5.466-.166 5.48 5.48 0 0 1 8.723 2.43 4.755 4.755 0 0 1 2.922 5.537 1.44 1.44 0 0 0-.908-.7c.012-.123.037-.243.037-.368a3.789 3.789 0 0 0-2.418-3.54l-.429-.169-.15-.436a4.494 4.494 0 0 0-8.629.426l-.232.99-.986-.25a2.407 2.407 0 0 0-.594-.084 2.443 2.443 0 0 0-2.206 1.42l-.268.581h-.715A2.437 2.437 0 0 0 5.437 17h7.542zm-9.549-7.546a2.038 2.038 0 0 0-.685 2.757 3.437 3.437 0 0 1 3.16-2.086l.012.001A3.369 3.369 0 0 1 9.4 9.24a5.478 5.478 0 0 1 1.124-2.235 2.42 2.42 0 0 0-3.948.03l-.39.55-.657-.156a1.725 1.725 0 0 0-2.155 1.696 1.775 1.775 0 0 0 .033.31l.118.659zM17.72 18h-1.105l-2.339 5h1.105zm3.936-2H20.55l-2.34 5h1.105zm-9.912 6h1.105l3.274-7H15.02z"></path><path d="M0 0h24v24H0z"></path></g></svg>`,
-            night: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3.38 23H2.277l1.871-4h1.105zm3.936-2l.936-2H7.147l-.935 2zm2.831-2l-1.87 4H9.38l1.871-4zm2.364-1H5.438A3.438 3.438 0 0 1 2 14.562c0-.035.01-.068.01-.103a3.05 3.05 0 0 1 .414-4.848 2.725 2.725 0 0 1 3.337-3.155 3.41 3.41 0 0 1 5.466-.166 5.48 5.48 0 0 1 8.723 2.43 4.755 4.755 0 0 1 2.922 5.537 1.44 1.44 0 0 0-.908-.7c.012-.123.037-.243.037-.368a3.789 3.789 0 0 0-2.418-3.54l-.429-.169-.15-.436a4.494 4.494 0 0 0-8.629.426l-.232.99-.986-.25a2.407 2.407 0 0 0-.594-.084 2.443 2.443 0 0 0-2.206 1.42l-.268.581h-.715A2.437 2.437 0 0 0 5.437 17h7.542zm-9.549-7.546a2.038 2.038 0 0 0-.685 2.757 3.437 3.437 0 0 1 3.16-2.086l.012.001A3.369 3.369 0 0 1 9.4 9.24a5.478 5.478 0 0 1 1.124-2.235 2.42 2.42 0 0 0-3.948.03l-.39.55-.657-.156a1.725 1.725 0 0 0-2.155 1.696 1.775 1.775 0 0 0 .033.31l.118.659zM17.72 18h-1.105l-2.339 5h1.105zm3.936-2H20.55l-2.34 5h1.105zm-9.912 6h1.105l3.274-7H15.02z"></path><path d="M0 0h24v24H0z"></path></g></svg>`,
+            day: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3.38 23H2.277l1.871-4h1.105zm3.936-2l.936-2H7.147l-.935 2zm2.831-2l-1.87 4H9.38l1.871-4zm2.364-1H5.438A3.438 3.438 0 0 1 2 14.562c0-.035.01-.068.01-.103a3.05 3.05 0 0 1 .414-4.848 2.725 2.725 0 0 1 3.337-3.155 3.41 3.41 0 0 1 5.466-.166 5.48 5.48 0 0 1 8.723 2.43 4.755 4.755 0 0 1 2.922 5.537 1.44 1.44 0 0 0-.908-.7c.012-.123.037-.243.037-.368a3.789 3.789 0 0 0-2.418-3.54l-.429-.169-.15-.436a4.494 4.494 0 0 0-8.629.426l-.232.99-.986-.25a2.407 2.407 0 0 0-.594-.084 2.443 2.443 0 0 0-2.206 1.42l-.268.581h-.715A2.437 2.437 0 0 0 5.437 17h7.542zm-9.549-7.546a2.038 2.038 0 0 0-.685 2.757 3.437 3.437 0 0 1 3.16-2.086l.012.001A3.369 3.369 0 0 1 9.4 9.24a5.478 5.478 0 0 1 1.124-2.235 2.42 2.42 0 0 0-3.948.03l-.39.55-.657-.156a1.725 1.725 0 0 0-2.155 1.696 1.775 1.775 0 0 0 .033.31l.118.659zM17.72 18h-1.105l-2.339 5h1.105zm3.936-2H20.55l-2.34 5h1.105zm-9.912 6h1.105l3.274-7H15.02z"></path><path fill="none" d="M0 0h24v24H0z"></path></g></svg>`,
+            night: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3.38 23H2.277l1.871-4h1.105zm3.936-2l.936-2H7.147l-.935 2zm2.831-2l-1.87 4H9.38l1.871-4zm2.364-1H5.438A3.438 3.438 0 0 1 2 14.562c0-.035.01-.068.01-.103a3.05 3.05 0 0 1 .414-4.848 2.725 2.725 0 0 1 3.337-3.155 3.41 3.41 0 0 1 5.466-.166 5.48 5.48 0 0 1 8.723 2.43 4.755 4.755 0 0 1 2.922 5.537 1.44 1.44 0 0 0-.908-.7c.012-.123.037-.243.037-.368a3.789 3.789 0 0 0-2.418-3.54l-.429-.169-.15-.436a4.494 4.494 0 0 0-8.629.426l-.232.99-.986-.25a2.407 2.407 0 0 0-.594-.084 2.443 2.443 0 0 0-2.206 1.42l-.268.581h-.715A2.437 2.437 0 0 0 5.437 17h7.542zm-9.549-7.546a2.038 2.038 0 0 0-.685 2.757 3.437 3.437 0 0 1 3.16-2.086l.012.001A3.369 3.369 0 0 1 9.4 9.24a5.478 5.478 0 0 1 1.124-2.235 2.42 2.42 0 0 0-3.948.03l-.39.55-.657-.156a1.725 1.725 0 0 0-2.155 1.696 1.775 1.775 0 0 0 .033.31l.118.659zM17.72 18h-1.105l-2.339 5h1.105zm3.936-2H20.55l-2.34 5h1.105zm-9.912 6h1.105l3.274-7H15.02z"></path><path fill="none" d="M0 0h24v24H0z"></path></g></svg>`,
         },
         bgUrl: {
             day: {
@@ -147,8 +147,8 @@ const weatherCode = {
                 lg: `day/rainy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
             },
             night: {
-                sm: `night/rainy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `night/rainy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                sm: `night/rainy-sm.jpg?tr=w-${SM_BG_WIDTH}`,
+                lg: `night/rainy-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
         },
     },
@@ -168,8 +168,8 @@ const weatherCode = {
                 lg: `day/thunder-lg.webp?tr=w-${LG_BG_WIDTH}`,
             },
             night: {
-                sm: `night/thunder-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `night/thunder-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                sm: `night/thunder-sm.jpg?tr=w-${SM_BG_WIDTH}`,
+                lg: `night/thunder-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
         },
     },
@@ -186,11 +186,11 @@ const weatherCode = {
         bgUrl: {
             day: {
                 sm: `day/snowy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `day/snowy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                lg: `day/snowy-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
             night: {
                 sm: `night/snowy-sm.jpeg?tr=w-${SM_BG_WIDTH}`,
-                lg: `night/snowy-lg.jpeg?tr=w-${LG_BG_WIDTH}`,
+                lg: `night/snowy-lg.jpg?tr=w-${LG_BG_WIDTH}`,
             },
         },
     },
@@ -198,7 +198,7 @@ const weatherCode = {
 
 const formatBgUrl = ({ bgUrl }, isDay) => {
     const timeOfDay = isDay ? "day" : "night";
-    const screenWidth = tempHeight < 768 ? "sm" : "lg";
+    const screenWidth = window.innerWidth < 768 ? "sm" : "lg";
     return BASE_URL + bgUrl[timeOfDay][screenWidth];
 };
 
@@ -278,12 +278,10 @@ export default function getAssets({ condition, is_day }) {
             weatherAssets = weatherCode.clear;
     }
 
-    // console.log(weatherAssets);
-
     const assets = {};
     assets.text = is_day ? weatherAssets.text.day : weatherAssets.text.night;
     assets.icon = is_day ? weatherAssets.icon.day : weatherAssets.icon.night;
-    assets.bgUrl = formatBgUrl(weatherAssets, is_day);  
+    assets.bgUrl = formatBgUrl(weatherAssets, is_day);
 
     if (assets.text === "replace") assets.text = condition.text;
 
