@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import loadingAnimation from "../assets/loading.gif";
-import getWeather from "./WeatherApi";
+import getWeather, { getAutoCompleteResults } from "./WeatherApi";
 import iconPack from "./Icon";
 import { getBackgroundImageUrl, getSummaryForecast, getUnitKey } from "./Util";
 import getAssets from "./WeatherCode";
@@ -70,8 +70,12 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
 
     const searchLocationInput = document.createElement("input");
     searchLocationInput.className =
-        "hidden absolute border-2 border-white rounded-full w-full h-12 bg-black bg-opacity-60 text-white text-sm px-4";
+        "hidden absolute border-2 border-white rounded-full w-full h-12 bg-black bg-opacity-60 text-white text-sm px-4 focus:outline-none";
     localeDiv.appendChild(searchLocationInput);
+
+    const autoCompleteDiv = document.createElement("div");
+    autoCompleteDiv.className = "absolute w-full top-12 rounded-full z-50";
+    localeDiv.appendChild(autoCompleteDiv);
 
     const locationDiv = document.createElement("div");
     locationDiv.className = "flex items-start gap-2";
@@ -118,12 +122,54 @@ const displayCurrentWeather = function displayurrentWeatherInformation(data) {
         dateTimeDiv.style.scale = "0";
     });
 
-    searchLocationInput.addEventListener("change", () => {
-        console.log("location changed");
-        const root = document.querySelector("#root");
-        root.innerHTML = "";
-        root.appendChild(Render(searchLocationInput.value));
+    searchLocationInput.addEventListener("input", () => {
+        if (!searchLocationInput.value) {
+            autoCompleteDiv.innerHTML = "";
+            return;
+        }
+
+        getAutoCompleteResults(searchLocationInput.value).then((results) => {
+            // console.log(results.length);
+            autoCompleteDiv.innerHTML = "";
+
+            const placeContainer = document.createElement("div");
+            placeContainer.className = "flex flex-col px-1";
+
+            results.forEach((place) => {
+                const placeBtn = document.createElement("button");
+                placeBtn.className =
+                    "flex flex-col gap-2 px-3 py-4 backdrop-blur-md backdrop-brightness-[.65] border-[1px] border-slate-700 rounded-md";
+                placeBtn.dataset.searchCity = place.name;
+
+                const city = document.createElement("p");
+                city.className = "text-white text-sm font-medium";
+                city.textContent = place.name;
+                placeBtn.appendChild(city);
+
+                const stateCountry = document.createElement("p");
+                stateCountry.className = "text-slate-300 text-xs";
+                stateCountry.textContent = `${place.region}, ${place.country}`;
+                placeBtn.appendChild(stateCountry);
+                placeContainer.appendChild(placeBtn);
+
+                placeBtn.addEventListener("click", () => {
+                    console.log("location changed");
+                    const root = document.querySelector("#root");
+                    root.innerHTML = "";
+                    root.appendChild(Render(searchLocationInput.value));
+                });
+            });
+
+            autoCompleteDiv.appendChild(placeContainer);
+        });
     });
+
+    // searchLocationInput.addEventListener("change", () => {
+    //     console.log("location changed");
+    //     const root = document.querySelector("#root");
+    //     root.innerHTML = "";
+    //     root.appendChild(Render(searchLocationInput.value));
+    // });
 
     // Div containing primary weather information
     const primaryInformationDiv = document.createElement("div");
