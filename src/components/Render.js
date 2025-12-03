@@ -11,10 +11,20 @@ import {
     VisibilityCard,
     ChanceOfRainCard,
     UVIndexCard,
+    SunriseCard,
+    SunsetCard,
+    airPressure,
+    AirPressureCard,
+    AQICard,
 } from "./Card";
 
 const UNIT_SUFFIX = "c";
 
+// const getIcon = ({ current }) => {
+//     let iconKey = current.condition.text.toLowerCase().replaceAll(" ", "-");
+//     iconKey = current.is_day ? (iconKey += "-d") : (iconKey += "-n");
+//     return iconPack[iconKey];
+// };
 
 const hourlyForecastDisplay = function hourlyInformationDisplay({
     forecast,
@@ -155,7 +165,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
                 placeContainer.appendChild(placeBtn);
 
                 placeBtn.addEventListener("click", () => {
-                    console.log("location changed");
+                    // console.log("location changed");
                     const root = document.querySelector("#root");
                     root.innerHTML = "";
                     root.appendChild(Render(searchLocationInput.value));
@@ -178,7 +188,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     const iconDiv = document.createElement("div");
     const weatherIcon = assets.icon;
     iconDiv.innerHTML = weatherIcon;
-    iconDiv.className = "w-28 h-28 fill-white";
+    iconDiv.className = "w-20 h-20 fill-white lg:w-28 lg:h-28";
     currentDiv.appendChild(iconDiv);
 
     const textDiv = document.createElement("div");
@@ -197,7 +207,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
 
     const weatherText = document.createElement("p");
     weatherText.textContent = assets.text;
-    weatherText.className = "text-white font-light text-2xl";
+    weatherText.className = "text-white font-light text-lg lg:text-2xl";
     textDiv.appendChild(weatherText);
     currentDiv.appendChild(textDiv);
     primaryInformationDiv.appendChild(currentDiv);
@@ -235,7 +245,7 @@ export default function Render(location) {
         const assets = getAssets(data.current);
         const backgroundImageUrl = assets.bgUrl;
         console.log(backgroundImageUrl);
-        bgContainer.className = "relative h-lvh";
+        bgContainer.className = "relative";
 
         // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
         bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.1) 50%), url(${backgroundImageUrl}) no-repeat center center`;
@@ -268,7 +278,19 @@ export default function Render(location) {
         const uvIndex = new UVIndexCard(data);
         cards.appendChild(uvIndex.cardContainer());
 
+        const sunrise = new SunriseCard(data);
+        cards.appendChild(sunrise.cardContainer());
+
+        const sunset = new SunsetCard(data);
+        cards.appendChild(sunset.cardContainer());
+
+        const pressure = new AirPressureCard(data);
+        cards.appendChild(pressure.cardContainer());
+
         container.appendChild(cards);
+
+        const aqi = new AQICard(data);
+        container.appendChild(aqi.cardContainer());
 
         bgContainer.appendChild(container);
 
