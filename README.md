@@ -404,3 +404,4 @@ If you found this useful, consider giving it a ⭐
 - **geolocation fallback** — Add a screenshot or example when it clarifies the workflow.
 - **WeatherAPI requests** — Verify that links and references still resolve.
 - **hourly forecast** — Check the relevant browser or runtime support.
+- **GitHub Pages deployment** — Keep the related setup steps aligned with the current scripts.
