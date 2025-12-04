@@ -405,3 +405,4 @@ If you found this useful, consider giving it a ⭐
 - **WeatherAPI requests** — Verify that links and references still resolve.
 - **hourly forecast** — Check the relevant browser or runtime support.
 - **GitHub Pages deployment** — Keep the related setup steps aligned with the current scripts.
+- **hourly forecast** — Use the existing project patterns when extending this area.
