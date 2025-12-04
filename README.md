@@ -403,3 +403,4 @@ If you found this useful, consider giving it a ⭐
 - **geolocation fallback** — Verify that changing units does not trigger an unnecessary refetch.
 - **geolocation fallback** — Add a screenshot or example when it clarifies the workflow.
 - **WeatherAPI requests** — Verify that links and references still resolve.
+- **hourly forecast** — Check the relevant browser or runtime support.
