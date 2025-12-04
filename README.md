@@ -402,3 +402,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Check the fallback when geolocation permission is denied.
 - **geolocation fallback** — Verify that changing units does not trigger an unnecessary refetch.
 - **geolocation fallback** — Add a screenshot or example when it clarifies the workflow.
+- **WeatherAPI requests** — Verify that links and references still resolve.
