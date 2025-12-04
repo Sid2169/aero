@@ -400,3 +400,4 @@ If you found this useful, consider giving it a ⭐
 - **WeatherAPI requests** — Keep the related setup steps aligned with the current scripts.
 - **Webpack configuration** — Check the required environment values before deploying.
 - **accessibility** — Check the fallback when geolocation permission is denied.
+- **geolocation fallback** — Verify that changing units does not trigger an unnecessary refetch.
