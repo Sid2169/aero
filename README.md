@@ -406,3 +406,4 @@ If you found this useful, consider giving it a ⭐
 - **hourly forecast** — Check the relevant browser or runtime support.
 - **GitHub Pages deployment** — Keep the related setup steps aligned with the current scripts.
 - **hourly forecast** — Use the existing project patterns when extending this area.
+- **accessibility** — Prefer small, focused changes over broad rewrites.
