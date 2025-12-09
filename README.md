@@ -263,3 +263,7 @@ Weather data is provided by [WeatherAPI.com](https://www.weatherapi.com/). Backg
 If you found this useful, consider giving it a ⭐
 
 </div>
+
+## Additional Notes
+
+- **responsive layout** — Verify that links and references still resolve.
