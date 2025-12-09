@@ -409,3 +409,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Prefer small, focused changes over broad rewrites.
 - **search flow** — Check the required environment values before deploying.
 - **background mapping** — Verify the change in both development and production builds.
+- **7-day forecast** — Add a screenshot or example when it clarifies the workflow.
