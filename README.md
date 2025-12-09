@@ -410,3 +410,4 @@ If you found this useful, consider giving it a ⭐
 - **search flow** — Check the required environment values before deploying.
 - **background mapping** — Verify the change in both development and production builds.
 - **7-day forecast** — Add a screenshot or example when it clarifies the workflow.
+- **WeatherAPI requests** — Use the existing project patterns when extending this area.
