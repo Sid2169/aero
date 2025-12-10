@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import loadingAnimation from "../assets/loading.gif";
+import loadingAnimation from "../assets/loading-2.gif";
 import getWeather, { getAutoCompleteResults } from "./WeatherApi";
 import iconPack from "./Icon";
 import { getBackgroundImageUrl, getSummaryForecast, getUnitKey } from "./Util";
@@ -17,6 +17,7 @@ import {
     AirPressureCard,
     AQICard,
 } from "./Card";
+import DailyForecast from "./DailyForecast";
 
 const UNIT_SUFFIX = "c";
 
@@ -233,11 +234,11 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
 
 export default function Render(location) {
     const bgContainer = document.createElement("div");
-    bgContainer.className = "relative h-lvh bg-[#1F322D] bg-cover";
+    bgContainer.className = "relative h-lvh bg-[#093140] bg-cover";
 
     const loading = document.createElement("img");
     loading.className =
-        "absolute top-[50%] -translate-y-1/2 left-[50%] -translate-x-1/2 w-[300px]";
+        "absolute top-[50%] -translate-y-1/2 left-[50%] -translate-x-1/2 w-[300px] lg:w-[500px]";
     loading.src = loadingAnimation;
 
     getWeather(location).then((data) => {
@@ -291,6 +292,8 @@ export default function Render(location) {
 
         const aqi = new AQICard(data);
         container.appendChild(aqi.cardContainer());
+
+        container.appendChild(DailyForecast(data, UNIT_SUFFIX));
 
         bgContainer.appendChild(container);
 
