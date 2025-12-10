@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import loadingAnimation from "../assets/loading-2.gif";
 import getWeather, { getAutoCompleteResults } from "./WeatherApi";
 import iconPack from "./Icon";
-import { getBackgroundImageUrl, getSummaryForecast, getUnitKey } from "./Util";
+import { getSummaryForecast, getUnitKey } from "./Util";
 import getAssets from "./WeatherCode";
 import {
     FeelsLikeCard,
@@ -20,12 +20,6 @@ import {
 import DailyForecast from "./DailyForecast";
 
 const UNIT_SUFFIX = "c";
-
-// const getIcon = ({ current }) => {
-//     let iconKey = current.condition.text.toLowerCase().replaceAll(" ", "-");
-//     iconKey = current.is_day ? (iconKey += "-d") : (iconKey += "-n");
-//     return iconPack[iconKey];
-// };
 
 const hourlyForecastDisplay = function hourlyInformationDisplay({
     forecast,
@@ -98,7 +92,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     locIcon.innerHTML = iconPack.location;
     locationDiv.appendChild(locIcon);
     const locationText = document.createElement("p");
-    locationText.textContent = `${data.location.name}, ${data.location.country}`;
+    locationText.innerHTML = `${data.location.name}<span class="hidden lg:inline-block">, ${data.location.country}</span>`;
     locationText.className = "text-slate-100 text-sm";
     locationDiv.appendChild(locationText);
     localeDiv.appendChild(locationDiv);
@@ -118,7 +112,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     dateDiv.className = "flex text-white text-xs ps-6";
     const dayOfWeek = dayjs().format("dddd");
     const date = dayjs(data.location.localtime).format("D MMM, YYYY"); // dayjs().format("D MMM, YYYY");
-    dateDiv.textContent = `${dayOfWeek} | ${date}`;
+    dateDiv.innerHTML = `<span class="hidden lg:inline-block">${dayOfWeek} | </span> ${date}`;
     dateTimeDiv.appendChild(dateDiv);
 
     const timeDiv = document.createElement("div");
@@ -255,7 +249,7 @@ export default function Render(location) {
 
         const container = document.createElement("div");
         container.className =
-            "container w-full max-w-md md:max-w-lg lg:max-w-2xl";
+            "container pb-12 w-full max-w-md md:max-w-lg lg:max-w-2xl";
         container.appendChild(displayCurrentWeather(data));
 
         const cards = document.createElement("div");
