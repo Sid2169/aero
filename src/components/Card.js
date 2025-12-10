@@ -12,7 +12,7 @@ class Card {
     cardContainer() {
         const card = document.createElement("div");
         card.className =
-            "flex flex-col px-4 py-4 rounded-xl  aspect-square justify-center items-center backdrop-brightness-75 backdrop-blur-md";
+            "flex flex-col px-4 py-4 rounded-xl aspect-square justify-center items-center backdrop-brightness-75 backdrop-blur-md";
 
         const icon = document.createElement("div");
         icon.className = this.iconClass;
@@ -129,7 +129,7 @@ export class AQICard {
     cardContainer() {
         const card = document.createElement("div");
         card.className =
-            "flex flex-col px-8 py-8 rounded-xl backdrop-brightness-75 backdrop-blur-md mt-6 gap-1";
+            "flex flex-col mx-2 px-8 py-8 rounded-xl backdrop-brightness-75 backdrop-blur-md mt-6 gap-1";
 
         const cardTitleDiv = document.createElement("div");
         cardTitleDiv.className = "flex items-center gap-2";
@@ -157,7 +157,7 @@ export class AQICard {
 
         const aqiBar = document.createElement("div");
         aqiBar.className =
-            "relative mt-2 h-[4px] w-full rounded-full bg-gradient-to-r from-green-400 via-yellow-300 via-orange-500 to-red-500";
+            "relative mt-2 h-[4px] w-full rounded-full bg-gradient-to-r from-green-400 via-yellow-300 via-orange-500 to-red-900";
 
         const pointer = document.createElement("div");
         pointer.className =
