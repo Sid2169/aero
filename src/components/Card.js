@@ -92,22 +92,22 @@ export class UVIndexCard extends Card {
 export class SunriseCard extends Card {
     constructor({ forecast }) {
         super();
-        this.iconClass = "";
+        this.iconClass = "w-10 h-10 lg:w-16 lg:h-16";
         this.displayTextClass += " mt-4 text-base";
         this.iconKey = "sunrise";
         this.displayText = "Sunrise";
-        this.text = forecast.forecastday[0].astro.sunrise;
+        this.text = forecast.forecastday[0].astro.sunrise.replace(/^0+/, "");
     }
 }
 
 export class SunsetCard extends Card {
     constructor({ forecast }) {
         super();
-        this.iconClass = "";
+        this.iconClass = "w-10 h-10 lg:w-16 lg:h-16";
         this.displayTextClass += " mt-4 text-base";
         this.iconKey = "sunset";
         this.displayText = "Sunset";
-        this.text = forecast.forecastday[0].astro.sunset;
+        this.text = forecast.forecastday[0].astro.sunset.replace(/^0+/, "");
     }
 }
 
@@ -116,7 +116,7 @@ export class AirPressureCard extends Card {
         super();
         this.iconKey = "airPressure";
         this.displayText = "Pressure";
-        this.text = `${current.pressure_in} inHg`;
+        this.text = `${current.pressure_in} <span class="font-light text-xs lg:text-sm">inHg</span>`;
     }
 }
 
