@@ -28,14 +28,17 @@ export const getUnitKey = (key, unit) => {
 };
 
 function calculateAqiForPollutant(pollutantName, pollutantLevel) {
-    // console.log(pollutantName, pollutantLevel);
+    let pLevel = Math.round(pollutantLevel);
+
     if (pollutantName === "co") {
-        pollutantLevel /= 1000;
+        pLevel /= 1000;
+        pLevel = Math.round(pLevel * 10) / 10;
     }
+    console.log(pollutantName, pLevel);
     const currentRange = aqiData.filter(
         (rng) =>
-            rng[pollutantName].low < pollutantLevel &&
-            rng[pollutantName].high >= pollutantLevel
+            rng[pollutantName].low <= pLevel &&
+            rng[pollutantName].high >= pLevel
     )[0];
     // console.log(currentRange);
 
@@ -43,7 +46,7 @@ function calculateAqiForPollutant(pollutantName, pollutantLevel) {
         ((currentRange.aqiRange.high - currentRange.aqiRange.low) /
             (currentRange[pollutantName].high -
                 currentRange[pollutantName].low)) *
-            (pollutantLevel - currentRange[pollutantName].low) +
+            (pLevel - currentRange[pollutantName].low) +
         currentRange.aqiRange.low;
     return aqi;
 }
