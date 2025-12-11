@@ -1,9 +1,7 @@
-import { getBackgroundImageUrl } from "./Util";
-
 const BASE_URL = "https://ik.imagekit.io/bishwarup307/odin-weather/";
 const SM_BG_WIDTH = 400;
 const LG_BG_WIDTH = 1080;
-const tempHeight = 500;
+// const tempHeight = 500;
 
 const weatherCode = {
     clear: {
@@ -126,7 +124,6 @@ const weatherCode = {
             },
         },
     },
-
     thunder: {
         text: {
             day: "replace",
@@ -147,7 +144,6 @@ const weatherCode = {
             },
         },
     },
-
     snow: {
         text: {
             day: "replace",
