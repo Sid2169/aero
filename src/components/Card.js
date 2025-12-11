@@ -132,16 +132,17 @@ export class AQICard {
             "flex flex-col mx-2 px-8 py-8 rounded-xl backdrop-brightness-75 backdrop-blur-md mt-6 gap-1";
 
         const cardTitleDiv = document.createElement("div");
-        cardTitleDiv.className = "flex items-center gap-2";
+        cardTitleDiv.className =
+            "flex items-center gap-2 pb-2 border-b-[1px] border-b-slate-600";
 
         const icon = document.createElement("div");
-        icon.className = "w-3 h-3 fill-white lg:w-5 lg:h-5";
+        icon.className = "fill-slate-200 w-3 h-3 lg:w-5 lg:h-5";
         icon.innerHTML = iconPack.aqi;
         cardTitleDiv.appendChild(icon);
 
         const title = document.createElement("p");
         title.textContent = "Air Quality";
-        title.className = "text-white font-light lg:text-sm";
+        title.className = "text-slate-200 text-sm";
         cardTitleDiv.appendChild(title);
 
         const aqi = calculateAqi(this.airQualityData);
