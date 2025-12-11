@@ -3,20 +3,20 @@ import aqiData from "../data/aqidata.json";
 const BASE_URL = "https://ik.imagekit.io/bishwarup307/odin-weather/";
 
 // !change this with `window.innerHeight`
-const tempHeight = 500;
+// const tempHeight = 500;
 
-export function getBackgroundImageUrl({ current }) {
-    // console.log(window.innerHeight);
-    let url = BASE_URL;
-    const timeOfDay = current.is_day ? "day" : "night";
-    url += `${timeOfDay}/`;
-    const suffix = tempHeight < 768 ? "sm" : "lg";
-    const width = tempHeight < 768 ? 401 : 1080;
-    url += `${current.condition.text
-        .toLowerCase()
-        .replaceAll(" ", "-")}-${suffix}.jpeg?tr=w-${width}`;
-    return url;
-}
+// export function getBackgroundImageUrl({ current }) {
+//     // console.log(window.innerHeight);
+//     let url = BASE_URL;
+//     const timeOfDay = current.is_day ? "day" : "night";
+//     url += `${timeOfDay}/`;
+//     const suffix = tempHeight < 768 ? "sm" : "lg";
+//     const width = tempHeight < 768 ? 401 : 1080;
+//     url += `${current.condition.text
+//         .toLowerCase()
+//         .replaceAll(" ", "-")}-${suffix}.jpeg?tr=w-${width}`;
+//     return url;
+// }
 
 export const getSummaryForecast = function getTodaysHighAndLow({ forecast }) {
     return forecast.forecastday[0].day;
@@ -34,7 +34,7 @@ function calculateAqiForPollutant(pollutantName, pollutantLevel) {
         pLevel /= 1000;
         pLevel = Math.round(pLevel * 10) / 10;
     }
-    console.log(pollutantName, pLevel);
+    // console.log(pollutantName, pLevel);
     const currentRange = aqiData.filter(
         (rng) =>
             rng[pollutantName].low <= pLevel &&
