@@ -78,7 +78,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
 
     const searchLocationInput = document.createElement("input");
     searchLocationInput.className =
-        "hidden absolute border-2 border-white rounded-full w-full h-12 bg-black bg-opacity-60 text-white text-sm px-4 focus:outline-none";
+        "hidden absolute border-2 border-white rounded-full w-full h-12 bg-black bg-opacity-60 text-white text-sm px-4 max-w-md md:max-w-lg lg:max-w-2xl focus:outline-none";
     localeDiv.appendChild(searchLocationInput);
 
     const autoCompleteDiv = document.createElement("div");
