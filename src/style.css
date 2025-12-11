@@ -19,3 +19,13 @@ button {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
+
+.toggle-temp {
+    color: #8f8f8f;
+    background-color: #0f172a;
+}
+
+.toggle-temp.active {
+    color: #fff;
+    background-color: #475569;
+}
