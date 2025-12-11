@@ -133,7 +133,7 @@ export class SunriseCard extends Card {
     constructor({ forecast }) {
         super();
         this.iconClass = "w-10 h-10 lg:w-16 lg:h-16";
-        this.displayTextClass += " mt-4 text-base";
+        this.displayTextClass += " mt-2 text-sm lg:mt-4 lg:text-base";
         this.iconKey = "sunrise";
         this.displayText = "Sunrise";
         this.text = forecast.forecastday[0].astro.sunrise.replace(/^0+/, "");
@@ -144,7 +144,7 @@ export class SunsetCard extends Card {
     constructor({ forecast }) {
         super();
         this.iconClass = "w-10 h-10 lg:w-16 lg:h-16";
-        this.displayTextClass += " mt-4 text-base";
+        this.displayTextClass += " mt-2 text-sm lg:mt-4 lg:text-base";
         this.iconKey = "sunset";
         this.displayText = "Sunset";
         this.text = forecast.forecastday[0].astro.sunset.replace(/^0+/, "");
