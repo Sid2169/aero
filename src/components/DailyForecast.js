@@ -3,8 +3,11 @@ import iconPack from "./Icon";
 import getAssets from "./WeatherCode";
 import { getUnitKey } from "./Util";
 
-const dailyForecastCard = (day, unit, index) => {
-    const { icon, text } = getAssets(day.day);
+const dailyForecastCard = (day, unit, isDay, index) => {
+    const record = day.day;
+    record.is_day = isDay;
+
+    const { icon, text } = getAssets(record);
     const today = index === 0 ? "Today" : null;
 
     const container = document.createElement("div");
@@ -47,7 +50,9 @@ const dailyForecastCard = (day, unit, index) => {
     return container;
 };
 
-export default function DailyForecast({ forecast }, unit) {
+export default function DailyForecast({ current, forecast }, unit) {
+    const isDay = current.is_day;
+
     const container = document.createElement("div");
     container.className =
         "mx-2 flex flex-col px-8 py-8 rounded-xl backdrop-brightness-75 backdrop-blur-md mt-6";
@@ -70,7 +75,7 @@ export default function DailyForecast({ forecast }, unit) {
     forecastDiv.className = "flex flex-col gap-4";
 
     forecast.forecastday.forEach((day, index) => {
-        forecastDiv.appendChild(dailyForecastCard(day, unit, index));
+        forecastDiv.appendChild(dailyForecastCard(day, unit, isDay, index));
     });
     container.appendChild(forecastDiv);
 
