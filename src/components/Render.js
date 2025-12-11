@@ -108,11 +108,11 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     const toggleTempUnitDiv = document.createElement("div");
     toggleTempUnitDiv.className = "flex items-center flex-1";
     const cButton = document.createElement("button");
-    cButton.className = "toggle-temp rounded-l-full py-1 px-2 flex-1";
+    cButton.className = "toggle-temp rounded-l-full py-1 px-2 flex-1 text-sm";
     cButton.innerHTML = "&degC";
     toggleTempUnitDiv.appendChild(cButton);
     const fButton = document.createElement("button");
-    fButton.className = "toggle-temp rounded-r-full py-1 px-2 flex-1";
+    fButton.className = "toggle-temp rounded-r-full py-1 px-2 flex-1 text-sm";
     fButton.innerHTML = "&degF";
     toggleTempUnitDiv.appendChild(fButton);
     localeDiv.appendChild(toggleTempUnitDiv);
