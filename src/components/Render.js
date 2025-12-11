@@ -13,13 +13,13 @@ import {
     UVIndexCard,
     SunriseCard,
     SunsetCard,
-    airPressure,
     AirPressureCard,
     AQICard,
 } from "./Card";
 import DailyForecast from "./DailyForecast";
 
-const UNIT_SUFFIX = "c";
+let UNIT_SUFFIX = "c";
+let activeUnit;
 
 const hourlyForecastDisplay = function hourlyInformationDisplay({
     forecast,
@@ -74,7 +74,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
 
     // Div for locaiton, date and time scale
     const localeDiv = document.createElement("div");
-    localeDiv.className = "flex gap-4 relative";
+    localeDiv.className = "flex gap-4 relative items-center";
 
     const searchLocationInput = document.createElement("input");
     searchLocationInput.className =
@@ -105,6 +105,40 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
     searchDiv.appendChild(searchButton);
     localeDiv.appendChild(searchDiv);
 
+    const toggleTempUnitDiv = document.createElement("div");
+    toggleTempUnitDiv.className = "flex items-center flex-1";
+    const cButton = document.createElement("button");
+    cButton.className = "toggle-temp rounded-l-full py-1 px-2 flex-1";
+    cButton.innerHTML = "&degC";
+    toggleTempUnitDiv.appendChild(cButton);
+    const fButton = document.createElement("button");
+    fButton.className = "toggle-temp rounded-r-full py-1 px-2 flex-1";
+    fButton.innerHTML = "&degF";
+    toggleTempUnitDiv.appendChild(fButton);
+    localeDiv.appendChild(toggleTempUnitDiv);
+
+    if (UNIT_SUFFIX === "c") cButton.classList.add("active");
+    else if (UNIT_SUFFIX === "f") fButton.classList.add("active");
+
+    cButton.addEventListener("click", () => {
+        if (cButton.classList.contains("active")) return;
+        fButton.classList.remove("active");
+        cButton.classList.add("active");
+        UNIT_SUFFIX = "c";
+        const root = document.querySelector("#root");
+        root.innerHTML = "";
+        root.appendChild(Render(root.dataset.currentLocation));
+    });
+    fButton.addEventListener("click", () => {
+        if (fButton.classList.contains("active")) return;
+        cButton.classList.remove("active");
+        fButton.classList.add("active");
+        UNIT_SUFFIX = "f";
+        const root = document.querySelector("#root");
+        root.innerHTML = "";
+        root.appendChild(Render(root.dataset.currentLocation));
+    });
+
     const dateTimeDiv = document.createElement("div");
     dateTimeDiv.className = "flex flex-col";
 
@@ -128,6 +162,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
         searchButton.style.scale = "0";
         locationDiv.style.scale = "0";
         dateTimeDiv.style.scale = "0";
+        toggleTempUnitDiv.style.scale = "0";
     });
 
     searchLocationInput.addEventListener("input", () => {
@@ -195,7 +230,7 @@ const displayCurrentWeather = function displayCurrentWeatherInformation(data) {
         data.current[getUnitKey("temp", UNIT_SUFFIX)]
     );
     const tempUnitSpan = document.createElement("span");
-    tempUnitSpan.innerHTML = "  &degC";
+    tempUnitSpan.innerHTML = `  &deg${UNIT_SUFFIX.toUpperCase()}`;
     tempUnitSpan.className = "text-white font-medium text-2xl";
     currentTemp.appendChild(tempUnitSpan);
     textDiv.appendChild(currentTemp);
@@ -243,7 +278,7 @@ export default function Render(location) {
         bgContainer.className = "relative";
 
         // url("https://ik.imagekit.io/bishwarup307/odin-weather/day/sunny-sm.jpeg?tr=w-401");
-        bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.1) 50%), url(${backgroundImageUrl}) no-repeat center center`;
+        bgContainer.style.background = `linear-gradient(to bottom, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.1) 50%), url(${backgroundImageUrl}) no-repeat fixed center`;
         bgContainer.style.backgroundSize = "cover";
         loading.style.scale = "0";
 
@@ -306,6 +341,10 @@ export default function Render(location) {
         } else {
             initHourlyForecastScroll();
         }
+
+        document.querySelector(
+            "#root"
+        ).dataset.currentLocation = `${data.location.lat},${data.location.lon}`;
     });
 
     bgContainer.appendChild(loading);
