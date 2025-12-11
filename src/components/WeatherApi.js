@@ -25,7 +25,7 @@ export default async function getWeather(location) {
         deviceLocationCoords = null;
     }
 
-    const searchLocation = location || deviceLocationCoords || "Darjeeling";
+    const searchLocation = location || deviceLocationCoords || "Bangalore";
 
     const response = await fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${searchLocation}&aqi=yes&days=7`
