@@ -7,29 +7,37 @@ class Card {
         this.displayTextClass = "text-white text-md font-medium md:text-lg";
         this.attributeNameClass =
             "text-white font-light text-[10px] md:text-xs";
+
+        this.card = document.createElement("div");
+        this.icon = document.createElement("div");
+        this.value = document.createElement("p");
+        this.attributeName = document.createElement("p");
     }
 
-    cardContainer() {
-        const card = document.createElement("div");
-        card.className =
+    makeCard() {
+        // const card = document.createElement("div");
+        this.card.className =
             "flex flex-col px-4 py-4 rounded-xl aspect-square justify-center items-center backdrop-brightness-75 backdrop-blur-md";
 
-        const icon = document.createElement("div");
-        icon.className = this.iconClass;
-        icon.innerHTML = iconPack[this.iconKey];
+        // const icon = document.createElement("div");
+        this.icon.className = this.iconClass;
+        this.icon.innerHTML = iconPack[this.iconKey];
 
-        const text = document.createElement("p");
-        text.className = this.displayTextClass;
-        text.innerHTML = this.text;
+        // this.text = document.createElement("p");
+        this.value.className = this.displayTextClass;
+        this.value.innerHTML = this.text;
 
-        const attributeName = document.createElement("p");
-        attributeName.className = this.attributeNameClass;
-        attributeName.textContent = this.displayText;
+        // this.attributeName = document.createElement("p");
+        this.attributeName.className = this.attributeNameClass;
+        this.attributeName.textContent = this.displayText;
+    }
 
-        card.appendChild(icon);
-        card.appendChild(text);
-        card.appendChild(attributeName);
-        return card;
+    display() {
+        this.makeCard();
+        this.card.appendChild(this.icon);
+        this.card.appendChild(this.value);
+        this.card.appendChild(this.attributeName);
+        return this.card;
     }
 }
 
@@ -86,6 +94,38 @@ export class UVIndexCard extends Card {
         this.iconKey = "uvIndex";
         this.displayText = "UV Index";
         this.text = `${current.uv}`;
+        this.uv = current.uv;
+    }
+
+    makeCard() {
+        super.makeCard();
+        this.icon.classList.add("relative");
+
+        const indicator = document.createElement("div");
+        indicator.className =
+            "absolute h-2 w-2 rounded-full -top-2 -right-3 lg:h-3 lg:w-3";
+        const animate = document.createElement("div");
+        animate.className =
+            "absolute h-2 w-2 rounded-full -top-2 -right-3 animate-ping lg:h-3 lg:w-3";
+
+        if (this.uv <= 2) {
+            indicator.classList.add("bg-emerald-400");
+            animate.classList.add("bg-emerald-400");
+        } else if (this.uv <= 4) {
+            indicator.classList.add("bg-yellow-300");
+            animate.classList.add("bg-yellow-300");
+        } else if (this.uv <= 6) {
+            indicator.classList.add("bg-orange-400");
+            animate.classList.add("bg-orange-400");
+        } else if (this.uv <= 8) {
+            indicator.classList.add("bg-red-500");
+            animate.classList.add("bg-red-500");
+        } else {
+            indicator.classList.add("bg-violet-500");
+            animate.classList.add("bg-violet-500");
+        }
+        this.icon.appendChild(indicator);
+        this.icon.appendChild(animate);
     }
 }
 
