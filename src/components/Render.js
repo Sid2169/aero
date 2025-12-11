@@ -288,7 +288,8 @@ export default function Render(location) {
         container.appendChild(displayCurrentWeather(data));
 
         const cards = document.createElement("div");
-        cards.className = "grid grid-cols-3 gap-x-10 gap-y-4 mt-16 mx-2";
+        cards.className =
+            "grid grid-cols-3 gap-x-4 gap-y-4 mt-16 mx-2 lg:gap-x-10";
 
         const feelsLike = new FeelsLikeCard(data, UNIT_SUFFIX);
         cards.appendChild(feelsLike.display());
@@ -350,4 +351,4 @@ export default function Render(location) {
     bgContainer.appendChild(loading);
 
     return bgContainer;
-}   
+}
