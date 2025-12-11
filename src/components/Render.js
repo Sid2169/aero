@@ -291,31 +291,31 @@ export default function Render(location) {
         cards.className = "grid grid-cols-3 gap-x-10 gap-y-4 mt-16 mx-2";
 
         const feelsLike = new FeelsLikeCard(data, UNIT_SUFFIX);
-        cards.appendChild(feelsLike.cardContainer());
+        cards.appendChild(feelsLike.display());
 
         const humidity = new HumidityCard(data);
-        cards.appendChild(humidity.cardContainer());
+        cards.appendChild(humidity.display());
 
         const windSpeed = new WindSpeedCard(data);
-        cards.appendChild(windSpeed.cardContainer());
+        cards.appendChild(windSpeed.display());
 
         const visibility = new VisibilityCard(data);
-        cards.appendChild(visibility.cardContainer());
+        cards.appendChild(visibility.display());
 
         const chanceOfRain = new ChanceOfRainCard(data);
-        cards.appendChild(chanceOfRain.cardContainer());
+        cards.appendChild(chanceOfRain.display());
 
         const uvIndex = new UVIndexCard(data);
-        cards.appendChild(uvIndex.cardContainer());
+        cards.appendChild(uvIndex.display());
 
         const sunrise = new SunriseCard(data);
-        cards.appendChild(sunrise.cardContainer());
+        cards.appendChild(sunrise.display());
 
         const sunset = new SunsetCard(data);
-        cards.appendChild(sunset.cardContainer());
+        cards.appendChild(sunset.display());
 
         const pressure = new AirPressureCard(data);
-        cards.appendChild(pressure.cardContainer());
+        cards.appendChild(pressure.display());
 
         container.appendChild(cards);
 
@@ -350,4 +350,4 @@ export default function Render(location) {
     bgContainer.appendChild(loading);
 
     return bgContainer;
-}
+}   
