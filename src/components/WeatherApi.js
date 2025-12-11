@@ -1,5 +1,3 @@
-import logoPng from "../assets/logo.png";
-
 function requestUserLocation() {
     return new Promise((resolve, reject) => {
         const successCallback = (position) => {
