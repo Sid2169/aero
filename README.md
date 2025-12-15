@@ -413,3 +413,4 @@ If you found this useful, consider giving it a ⭐
 - **WeatherAPI requests** — Use the existing project patterns when extending this area.
 - **hourly forecast** — Document any manual steps that cannot be automated.
 - **7-day forecast** — Keep the terminology consistent with the rest of the project.
+- **search flow** — Note any external service limits or required keys.
