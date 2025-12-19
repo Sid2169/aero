@@ -420,3 +420,4 @@ If you found this useful, consider giving it a ⭐
 - **Webpack configuration** — Document any manual steps that cannot be automated.
 - **responsive layout** — Note any external service limits or required keys.
 - **browser support** — Check the relevant browser or runtime support.
+- **environment configuration** — Keep the terminology consistent with the rest of the project.
