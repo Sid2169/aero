@@ -419,3 +419,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Check the required environment values before deploying.
 - **Webpack configuration** — Document any manual steps that cannot be automated.
 - **responsive layout** — Note any external service limits or required keys.
+- **browser support** — Check the relevant browser or runtime support.
