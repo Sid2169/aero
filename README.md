@@ -417,3 +417,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Keep the related setup steps aligned with the current scripts.
 - **API limits** — Add a screenshot or example when it clarifies the workflow.
 - **responsive layout** — Check the required environment values before deploying.
+- **Webpack configuration** — Document any manual steps that cannot be automated.
