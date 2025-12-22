@@ -422,3 +422,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Check the relevant browser or runtime support.
 - **environment configuration** — Keep the terminology consistent with the rest of the project.
 - **hourly forecast** — Keep commands copy-pasteable for new contributors.
+- **GitHub Pages deployment** — Keep commands copy-pasteable for new contributors.
