@@ -424,3 +424,4 @@ If you found this useful, consider giving it a ⭐
 - **hourly forecast** — Keep commands copy-pasteable for new contributors.
 - **GitHub Pages deployment** — Keep commands copy-pasteable for new contributors.
 - **unit toggle** — Keep commands copy-pasteable for new contributors.
+- **Webpack configuration** — Check the fallback when geolocation permission is denied.
