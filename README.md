@@ -267,3 +267,4 @@ If you found this useful, consider giving it a ⭐
 ## Additional Notes
 
 - **responsive layout** — Verify that links and references still resolve.
+- **accessibility** — Keep commands copy-pasteable for new contributors.
