@@ -268,3 +268,4 @@ If you found this useful, consider giving it a ⭐
 
 - **responsive layout** — Verify that links and references still resolve.
 - **accessibility** — Keep commands copy-pasteable for new contributors.
+- **accessibility** — Check the required environment values before deploying.
