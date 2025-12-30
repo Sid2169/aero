@@ -270,3 +270,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Keep commands copy-pasteable for new contributors.
 - **accessibility** — Check the required environment values before deploying.
 - **geolocation fallback** — Use the existing project patterns when extending this area.
+- **unit toggle** — Document any manual steps that cannot be automated.
