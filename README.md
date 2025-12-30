@@ -271,3 +271,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Check the required environment values before deploying.
 - **geolocation fallback** — Use the existing project patterns when extending this area.
 - **unit toggle** — Document any manual steps that cannot be automated.
+- **GitHub Pages deployment** — Check the relevant browser or runtime support.
