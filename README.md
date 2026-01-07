@@ -274,3 +274,4 @@ If you found this useful, consider giving it a ⭐
 - **GitHub Pages deployment** — Check the relevant browser or runtime support.
 - **geolocation fallback** — Confirm the expected behavior on a clean checkout.
 - **AQI cards** — Verify that links and references still resolve.
+- **hourly forecast** — Confirm the expected behavior on a clean checkout.
