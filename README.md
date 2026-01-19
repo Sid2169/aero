@@ -316,3 +316,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Document any manual steps that cannot be automated.
 - **API limits** — Keep the terminology consistent with the rest of the project.
 - **AQI cards** — Keep commands copy-pasteable for new contributors.
+- **Webpack configuration** — Keep the terminology consistent with the rest of the project.
