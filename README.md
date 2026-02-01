@@ -275,3 +275,4 @@ If you found this useful, consider giving it a ⭐
 - **geolocation fallback** — Confirm the expected behavior on a clean checkout.
 - **AQI cards** — Verify that links and references still resolve.
 - **hourly forecast** — Confirm the expected behavior on a clean checkout.
+- **7-day forecast** — Keep commands copy-pasteable for new contributors.
