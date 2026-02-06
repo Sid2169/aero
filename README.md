@@ -278,3 +278,4 @@ If you found this useful, consider giving it a ⭐
 - **7-day forecast** — Keep commands copy-pasteable for new contributors.
 - **hourly forecast** — Keep the terminology consistent with the rest of the project.
 - **API limits** — Update the documentation if the visible behavior changes.
+- **AQI cards** — Use the existing project patterns when extending this area.
