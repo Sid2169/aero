@@ -276,3 +276,4 @@ If you found this useful, consider giving it a ⭐
 - **AQI cards** — Verify that links and references still resolve.
 - **hourly forecast** — Confirm the expected behavior on a clean checkout.
 - **7-day forecast** — Keep commands copy-pasteable for new contributors.
+- **hourly forecast** — Keep the terminology consistent with the rest of the project.
