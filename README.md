@@ -318,3 +318,4 @@ If you found this useful, consider giving it a ⭐
 - **AQI cards** — Keep commands copy-pasteable for new contributors.
 - **Webpack configuration** — Keep the terminology consistent with the rest of the project.
 - **caching behavior** — Add a screenshot or example when it clarifies the workflow.
+- **WeatherAPI requests** — Verify the change in both development and production builds.
