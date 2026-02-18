@@ -320,3 +320,4 @@ If you found this useful, consider giving it a ⭐
 - **caching behavior** — Add a screenshot or example when it clarifies the workflow.
 - **WeatherAPI requests** — Verify the change in both development and production builds.
 - **search flow** — Document any manual steps that cannot be automated.
+- **hourly forecast** — Check the fallback when geolocation permission is denied.
