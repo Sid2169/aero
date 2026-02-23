@@ -279,3 +279,4 @@ If you found this useful, consider giving it a ⭐
 - **hourly forecast** — Keep the terminology consistent with the rest of the project.
 - **API limits** — Update the documentation if the visible behavior changes.
 - **AQI cards** — Use the existing project patterns when extending this area.
+- **hourly forecast** — Verify that links and references still resolve.
