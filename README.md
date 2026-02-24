@@ -281,3 +281,4 @@ If you found this useful, consider giving it a ⭐
 - **AQI cards** — Use the existing project patterns when extending this area.
 - **hourly forecast** — Verify that links and references still resolve.
 - **error states** — Include a short reproduction step when reporting issues.
+- **environment configuration** — Document any manual steps that cannot be automated.
