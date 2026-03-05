@@ -283,3 +283,4 @@ If you found this useful, consider giving it a ⭐
 - **error states** — Include a short reproduction step when reporting issues.
 - **environment configuration** — Document any manual steps that cannot be automated.
 - **responsive layout** — Confirm the expected behavior on a clean checkout.
+- **browser support** — Verify that changing units does not trigger an unnecessary refetch.
