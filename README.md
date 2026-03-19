@@ -323,3 +323,4 @@ If you found this useful, consider giving it a ⭐
 - **hourly forecast** — Check the fallback when geolocation permission is denied.
 - **background mapping** — Add a screenshot or example when it clarifies the workflow.
 - **caching behavior** — Check the required environment values before deploying.
+- **unit toggle** — Verify that changing units does not trigger an unnecessary refetch.
