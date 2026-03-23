@@ -285,3 +285,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Confirm the expected behavior on a clean checkout.
 - **browser support** — Verify that changing units does not trigger an unnecessary refetch.
 - **WeatherAPI requests** — Check the relevant browser or runtime support.
+- **error states** — Add a screenshot or example when it clarifies the workflow.
