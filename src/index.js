@@ -1,5 +1,4 @@
-import "./style.css";
+import './style.css';
+import Render from './components/Render';
 
-import Render from "./components/Render";
-
-document.querySelector("#root").appendChild(Render());
+Render();

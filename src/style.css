@@ -2,30 +2,168 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    @apply text-textPrimary;
+:root {
+  --sky-dark: #0c1a2e;
+  --sky-mid: #1a3450;
+  --ice: #a8d8f0;
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.1);
+  --text-bright: #e8f4fd;
+  --text-mid: rgba(232,244,253,0.65);
+  --text-dim: rgba(232,244,253,0.35);
+  --accent: #5bc8f5;
+  --accent2: #f5a623;
 }
 
-button {
-    @apply cursor-pointer;
+html, body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--sky-dark);
+  color: var(--text-bright);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Put your custom CSS selectors here */
-.hourly-forecast-display::-webkit-scrollbar {
-    display: none !important; /* Safari and Chrome */
+/* Sky background */
+.sky-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 70% 0%, #1e4a7a 0%, #0c1a2e 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, #0d2640 0%, transparent 70%);
 }
 
-.hourly-forecast-display {
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+.stars {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25%  8%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65%  5%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 18%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.4) 0%, transparent 100%);
 }
 
-.toggle-temp {
-    color: #8f8f8f;
-    background-color: #0f172a;
+/* App shell */
+.app-container {
+  position: relative; z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
 }
 
-.toggle-temp.active {
-    color: #fff;
-    background-color: #475569;
+/* Header */
+.location-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: var(--text-bright);
+}
+.location-pill:hover { background: rgba(255,255,255,0.1); }
+.location-pill svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+
+.unit-toggle {
+  display: flex;
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.unit-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  background: none; border: none; cursor: pointer;
+  padding: 7px 14px;
+  color: var(--text-mid);
+  transition: all 0.2s;
+}
+.unit-btn.active { background: rgba(91,200,245,0.2); color: var(--accent); }
+
+/* Hero */
+.icon-glow {
+  position: absolute; inset: -20px;
+  background: radial-gradient(circle, rgba(245,200,66,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.15); opacity: 0.7; }
+}
+
+/* Glass cards */
+.glass-card {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+.glass-card:hover { background: rgba(255,255,255,0.08); }
+
+/* Stat grid */
+.stat-card {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 18px;
+  padding: 16px 12px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: background 0.2s;
+}
+.stat-card:hover { background: rgba(255,255,255,0.08); }
+
+/* Hourly strip */
+.hourly-scroll {
+  display: flex; gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  margin-bottom: 28px;
+}
+.hourly-scroll::-webkit-scrollbar { display: none; }
+
+.hour-card {
+  flex-shrink: 0; width: 60px;
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 12px 0; text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.hour-card.now {
+  background: rgba(91,200,245,0.15);
+  border-color: rgba(91,200,245,0.4);
+}
+
+/* Section label */
+.section-label {
+  font-size: 11px; font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Forecast rows */
+.forecast-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 0.5px solid var(--card-border);
+}
+.forecast-row:last-child { border-bottom: none; padding-bottom: 0; }
+.forecast-row:first-child { padding-top: 0; }
+
+.temp-range-bar {
+  position: relative; height: 3px; border-radius: 2px;
+  background: rgba(255,255,255,0.08);
+}
+.temp-range-fill {
+  position: absolute; inset-y: 0; border-radius: 2px;
+  background: linear-gradient(to right, #5bc8f5, #f5a623);
 }

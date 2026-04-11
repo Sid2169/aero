@@ -27,9 +27,9 @@ module.exports = {
                 hero: "url('/src/assets/hero.png')",
             },
             fontFamily: {
-                // Add your fonts
-                sans: ["Sora", "sans-serif"],
-                fa: "Font Awesome 5 Free",
+                sans: ["'DM Sans'", 'sans-serif'],
+                mono: ["'DM Mono'", 'monospace'],
+                fa: 'Font Awesome 5 Free',
             },
             colors: {
                 // Add your custom colors
