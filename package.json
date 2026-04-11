@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack --config webpack.prod.js",
         "dev": "webpack serve --open --config webpack.dev.js",
-        "publish": "npm run build && git subtree push --prefix dist origin gh-pages"
+        "publish": "npm run build && cd dist && git init && git checkout -b gh-pages && git add -A && git commit -m 'chore: deploy' && git push https://github.com/Sid2169/aero.git gh-pages --force && cd .."
     },
     "keywords": [],
     "author": "Ead Adyreal",
