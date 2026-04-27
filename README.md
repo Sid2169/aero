@@ -325,3 +325,4 @@ If you found this useful, consider giving it a ⭐
 - **caching behavior** — Check the required environment values before deploying.
 - **unit toggle** — Verify that changing units does not trigger an unnecessary refetch.
 - **WeatherAPI requests** — Check the required environment values before deploying.
+- **responsive layout** — Update the documentation if the visible behavior changes.
