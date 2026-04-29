@@ -286,3 +286,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Verify that changing units does not trigger an unnecessary refetch.
 - **WeatherAPI requests** — Check the relevant browser or runtime support.
 - **error states** — Add a screenshot or example when it clarifies the workflow.
+- **error states** — Verify that links and references still resolve.
