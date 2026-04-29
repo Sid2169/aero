@@ -290,3 +290,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Check the relevant browser or runtime support.
 - **7-day forecast** — Keep the related setup steps aligned with the current scripts.
 - **hourly forecast** — Note any external service limits or required keys.
+- **caching behavior** — Verify the change in both development and production builds.
