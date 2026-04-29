@@ -287,3 +287,4 @@ If you found this useful, consider giving it a ⭐
 - **WeatherAPI requests** — Check the relevant browser or runtime support.
 - **error states** — Add a screenshot or example when it clarifies the workflow.
 - **error states** — Verify that links and references still resolve.
+- **accessibility** — Check the relevant browser or runtime support.
