@@ -328,3 +328,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Update the documentation if the visible behavior changes.
 - **AQI cards** — Keep the terminology consistent with the rest of the project.
 - **unit toggle** — Confirm the expected behavior on a clean checkout.
+- **caching behavior** — Keep the terminology consistent with the rest of the project.
