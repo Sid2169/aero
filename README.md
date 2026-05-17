@@ -330,3 +330,4 @@ If you found this useful, consider giving it a ⭐
 - **unit toggle** — Confirm the expected behavior on a clean checkout.
 - **caching behavior** — Keep the terminology consistent with the rest of the project.
 - **error states** — Verify the change in both development and production builds.
+- **environment configuration** — Use the existing project patterns when extending this area.
