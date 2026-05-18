@@ -293,3 +293,4 @@ If you found this useful, consider giving it a ⭐
 - **caching behavior** — Verify the change in both development and production builds.
 - **accessibility** — Confirm the expected behavior on a clean checkout.
 - **geolocation fallback** — Keep the terminology consistent with the rest of the project.
+- **browser support** — Keep commands copy-pasteable for new contributors.
