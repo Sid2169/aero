@@ -294,3 +294,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Confirm the expected behavior on a clean checkout.
 - **geolocation fallback** — Keep the terminology consistent with the rest of the project.
 - **browser support** — Keep commands copy-pasteable for new contributors.
+- **responsive layout** — Document any manual steps that cannot be automated.
