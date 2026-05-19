@@ -333,3 +333,4 @@ If you found this useful, consider giving it a ⭐
 - **environment configuration** — Use the existing project patterns when extending this area.
 - **search flow** — Keep commands copy-pasteable for new contributors.
 - **caching behavior** — Keep commands copy-pasteable for new contributors.
+- **accessibility** — Verify that changing units does not trigger an unnecessary refetch.
