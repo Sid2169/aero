@@ -334,3 +334,4 @@ If you found this useful, consider giving it a ⭐
 - **search flow** — Keep commands copy-pasteable for new contributors.
 - **caching behavior** — Keep commands copy-pasteable for new contributors.
 - **accessibility** — Verify that changing units does not trigger an unnecessary refetch.
+- **geolocation fallback** — Check the fallback when geolocation permission is denied.
