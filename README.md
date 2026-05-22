@@ -335,3 +335,4 @@ If you found this useful, consider giving it a ⭐
 - **caching behavior** — Keep commands copy-pasteable for new contributors.
 - **accessibility** — Verify that changing units does not trigger an unnecessary refetch.
 - **geolocation fallback** — Check the fallback when geolocation permission is denied.
+- **hourly forecast** — Keep the related setup steps aligned with the current scripts.
