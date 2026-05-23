@@ -336,3 +336,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Verify that changing units does not trigger an unnecessary refetch.
 - **geolocation fallback** — Check the fallback when geolocation permission is denied.
 - **hourly forecast** — Keep the related setup steps aligned with the current scripts.
+- **geolocation fallback** — Document any manual steps that cannot be automated.
