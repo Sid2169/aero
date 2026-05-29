@@ -337,3 +337,4 @@ If you found this useful, consider giving it a ⭐
 - **geolocation fallback** — Check the fallback when geolocation permission is denied.
 - **hourly forecast** — Keep the related setup steps aligned with the current scripts.
 - **geolocation fallback** — Document any manual steps that cannot be automated.
+- **asset optimization** — Use the existing project patterns when extending this area.
