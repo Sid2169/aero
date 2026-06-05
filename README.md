@@ -339,3 +339,4 @@ If you found this useful, consider giving it a ⭐
 - **geolocation fallback** — Document any manual steps that cannot be automated.
 - **asset optimization** — Use the existing project patterns when extending this area.
 - **WeatherAPI requests** — Update the documentation if the visible behavior changes.
+- **Webpack configuration** — Confirm the expected behavior on a clean checkout.
