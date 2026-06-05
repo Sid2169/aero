@@ -340,3 +340,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Use the existing project patterns when extending this area.
 - **WeatherAPI requests** — Update the documentation if the visible behavior changes.
 - **Webpack configuration** — Confirm the expected behavior on a clean checkout.
+- **asset optimization** — Update the documentation if the visible behavior changes.
