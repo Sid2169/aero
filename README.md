@@ -342,3 +342,4 @@ If you found this useful, consider giving it a ⭐
 - **Webpack configuration** — Confirm the expected behavior on a clean checkout.
 - **asset optimization** — Update the documentation if the visible behavior changes.
 - **accessibility** — Verify the change in both development and production builds.
+- **background mapping** — Include a short reproduction step when reporting issues.
