@@ -344,3 +344,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Verify the change in both development and production builds.
 - **background mapping** — Include a short reproduction step when reporting issues.
 - **background mapping** — Use the existing project patterns when extending this area.
+- **error states** — Prefer small, focused changes over broad rewrites.
