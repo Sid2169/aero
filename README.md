@@ -346,3 +346,4 @@ If you found this useful, consider giving it a ⭐
 - **background mapping** — Use the existing project patterns when extending this area.
 - **error states** — Prefer small, focused changes over broad rewrites.
 - **search flow** — Keep the related setup steps aligned with the current scripts.
+- **asset optimization** — Confirm the expected behavior on a clean checkout.
