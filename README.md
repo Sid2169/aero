@@ -349,3 +349,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Confirm the expected behavior on a clean checkout.
 - **search flow** — Verify that changing units does not trigger an unnecessary refetch.
 - **responsive layout** — Check the relevant browser or runtime support.
+- **geolocation fallback** — Verify the change in both development and production builds.
