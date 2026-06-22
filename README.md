@@ -347,3 +347,4 @@ If you found this useful, consider giving it a ⭐
 - **error states** — Prefer small, focused changes over broad rewrites.
 - **search flow** — Keep the related setup steps aligned with the current scripts.
 - **asset optimization** — Confirm the expected behavior on a clean checkout.
+- **search flow** — Verify that changing units does not trigger an unnecessary refetch.
