@@ -352,3 +352,4 @@ If you found this useful, consider giving it a ⭐
 - **geolocation fallback** — Verify the change in both development and production builds.
 - **caching behavior** — Use the existing project patterns when extending this area.
 - **7-day forecast** — Check the fallback when geolocation permission is denied.
+- **hourly forecast** — Prefer small, focused changes over broad rewrites.
