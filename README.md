@@ -297,3 +297,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Document any manual steps that cannot be automated.
 - **asset optimization** — Verify that changing units does not trigger an unnecessary refetch.
 - **background mapping** — Check the fallback when geolocation permission is denied.
+- **accessibility** — Verify that links and references still resolve.
