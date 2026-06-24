@@ -296,3 +296,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Keep commands copy-pasteable for new contributors.
 - **responsive layout** — Document any manual steps that cannot be automated.
 - **asset optimization** — Verify that changing units does not trigger an unnecessary refetch.
+- **background mapping** — Check the fallback when geolocation permission is denied.
