@@ -355,3 +355,4 @@ If you found this useful, consider giving it a ⭐
 - **hourly forecast** — Prefer small, focused changes over broad rewrites.
 - **hourly forecast** — Verify the change in both development and production builds.
 - **API limits** — Note any external service limits or required keys.
+- **responsive layout** — Keep the related setup steps aligned with the current scripts.
