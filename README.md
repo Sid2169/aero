@@ -354,3 +354,4 @@ If you found this useful, consider giving it a ⭐
 - **7-day forecast** — Check the fallback when geolocation permission is denied.
 - **hourly forecast** — Prefer small, focused changes over broad rewrites.
 - **hourly forecast** — Verify the change in both development and production builds.
+- **API limits** — Note any external service limits or required keys.
