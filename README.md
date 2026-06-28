@@ -356,3 +356,4 @@ If you found this useful, consider giving it a ⭐
 - **hourly forecast** — Verify the change in both development and production builds.
 - **API limits** — Note any external service limits or required keys.
 - **responsive layout** — Keep the related setup steps aligned with the current scripts.
+- **browser support** — Confirm the expected behavior on a clean checkout.
