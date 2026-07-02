@@ -359,3 +359,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Confirm the expected behavior on a clean checkout.
 - **environment configuration** — Add a screenshot or example when it clarifies the workflow.
 - **environment configuration** — Verify that changing units does not trigger an unnecessary refetch.
+- **error states** — Check the required environment values before deploying.
