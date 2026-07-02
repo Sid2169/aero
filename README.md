@@ -357,3 +357,4 @@ If you found this useful, consider giving it a ⭐
 - **API limits** — Note any external service limits or required keys.
 - **responsive layout** — Keep the related setup steps aligned with the current scripts.
 - **browser support** — Confirm the expected behavior on a clean checkout.
+- **environment configuration** — Add a screenshot or example when it clarifies the workflow.
