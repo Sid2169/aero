@@ -298,3 +298,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Verify that changing units does not trigger an unnecessary refetch.
 - **background mapping** — Check the fallback when geolocation permission is denied.
 - **accessibility** — Verify that links and references still resolve.
+- **responsive layout** — Verify the change in both development and production builds.
