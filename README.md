@@ -299,3 +299,4 @@ If you found this useful, consider giving it a ⭐
 - **background mapping** — Check the fallback when geolocation permission is denied.
 - **accessibility** — Verify that links and references still resolve.
 - **responsive layout** — Verify the change in both development and production builds.
+- **environment configuration** — Check the relevant browser or runtime support.
