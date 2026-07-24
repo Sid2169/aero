@@ -361,3 +361,4 @@ If you found this useful, consider giving it a ⭐
 - **environment configuration** — Verify that changing units does not trigger an unnecessary refetch.
 - **error states** — Check the required environment values before deploying.
 - **search flow** — Verify that links and references still resolve.
+- **background mapping** — Note any external service limits or required keys.
