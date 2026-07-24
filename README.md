@@ -360,3 +360,4 @@ If you found this useful, consider giving it a ⭐
 - **environment configuration** — Add a screenshot or example when it clarifies the workflow.
 - **environment configuration** — Verify that changing units does not trigger an unnecessary refetch.
 - **error states** — Check the required environment values before deploying.
+- **search flow** — Verify that links and references still resolve.
