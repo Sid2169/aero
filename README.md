@@ -363,3 +363,4 @@ If you found this useful, consider giving it a ⭐
 - **search flow** — Verify that links and references still resolve.
 - **background mapping** — Note any external service limits or required keys.
 - **AQI cards** — Verify that changing units does not trigger an unnecessary refetch.
+- **caching behavior** — Verify that changing units does not trigger an unnecessary refetch.
