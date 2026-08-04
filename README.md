@@ -365,3 +365,4 @@ If you found this useful, consider giving it a ⭐
 - **AQI cards** — Verify that changing units does not trigger an unnecessary refetch.
 - **caching behavior** — Verify that changing units does not trigger an unnecessary refetch.
 - **responsive layout** — Prefer small, focused changes over broad rewrites.
+- **unit toggle** — Prefer small, focused changes over broad rewrites.
