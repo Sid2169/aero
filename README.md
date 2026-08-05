@@ -303,3 +303,4 @@ If you found this useful, consider giving it a ⭐
 - **AQI cards** — Note any external service limits or required keys.
 - **error states** — Verify that changing units does not trigger an unnecessary refetch.
 - **GitHub Pages deployment** — Verify that links and references still resolve.
+- **geolocation fallback** — Update the documentation if the visible behavior changes.
