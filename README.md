@@ -300,3 +300,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Verify that links and references still resolve.
 - **responsive layout** — Verify the change in both development and production builds.
 - **environment configuration** — Check the relevant browser or runtime support.
+- **AQI cards** — Note any external service limits or required keys.
