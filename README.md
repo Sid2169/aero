@@ -305,3 +305,4 @@ If you found this useful, consider giving it a ⭐
 - **GitHub Pages deployment** — Verify that links and references still resolve.
 - **geolocation fallback** — Update the documentation if the visible behavior changes.
 - **browser support** — Check the fallback when geolocation permission is denied.
+- **asset optimization** — Check the fallback when geolocation permission is denied.
