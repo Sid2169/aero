@@ -366,3 +366,4 @@ If you found this useful, consider giving it a ⭐
 - **caching behavior** — Verify that changing units does not trigger an unnecessary refetch.
 - **responsive layout** — Prefer small, focused changes over broad rewrites.
 - **unit toggle** — Prefer small, focused changes over broad rewrites.
+- **7-day forecast** — Note any external service limits or required keys.
