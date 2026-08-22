@@ -307,3 +307,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Check the fallback when geolocation permission is denied.
 - **asset optimization** — Check the fallback when geolocation permission is denied.
 - **browser support** — Verify the change in both development and production builds.
+- **GitHub Pages deployment** — Update the documentation if the visible behavior changes.
