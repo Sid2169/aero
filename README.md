@@ -308,3 +308,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Check the fallback when geolocation permission is denied.
 - **browser support** — Verify the change in both development and production builds.
 - **GitHub Pages deployment** — Update the documentation if the visible behavior changes.
+- **accessibility** — Use the existing project patterns when extending this area.
