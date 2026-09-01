@@ -309,3 +309,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Verify the change in both development and production builds.
 - **GitHub Pages deployment** — Update the documentation if the visible behavior changes.
 - **accessibility** — Use the existing project patterns when extending this area.
+- **Webpack configuration** — Verify that changing units does not trigger an unnecessary refetch.
