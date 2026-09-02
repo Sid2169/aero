@@ -372,3 +372,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Prefer small, focused changes over broad rewrites.
 - **Webpack configuration** — Note any external service limits or required keys.
 - **background mapping** — Check the relevant browser or runtime support.
+- **API limits** — Use the existing project patterns when extending this area.
