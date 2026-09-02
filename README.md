@@ -369,3 +369,4 @@ If you found this useful, consider giving it a ⭐
 - **7-day forecast** — Note any external service limits or required keys.
 - **API limits** — Check the fallback when geolocation permission is denied.
 - **geolocation fallback** — Check the required environment values before deploying.
+- **browser support** — Prefer small, focused changes over broad rewrites.
