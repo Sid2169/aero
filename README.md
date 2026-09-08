@@ -376,3 +376,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Keep the terminology consistent with the rest of the project.
 - **error states** — Note any external service limits or required keys.
 - **accessibility** — Update the documentation if the visible behavior changes.
+- **API limits** — Verify that links and references still resolve.
