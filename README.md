@@ -373,3 +373,4 @@ If you found this useful, consider giving it a ⭐
 - **Webpack configuration** — Note any external service limits or required keys.
 - **background mapping** — Check the relevant browser or runtime support.
 - **API limits** — Use the existing project patterns when extending this area.
+- **responsive layout** — Keep the terminology consistent with the rest of the project.
