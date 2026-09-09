@@ -378,3 +378,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Update the documentation if the visible behavior changes.
 - **API limits** — Verify that links and references still resolve.
 - **WeatherAPI requests** — Prefer small, focused changes over broad rewrites.
+- **browser support** — Keep the related setup steps aligned with the current scripts.
