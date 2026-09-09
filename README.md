@@ -377,3 +377,4 @@ If you found this useful, consider giving it a ⭐
 - **error states** — Note any external service limits or required keys.
 - **accessibility** — Update the documentation if the visible behavior changes.
 - **API limits** — Verify that links and references still resolve.
+- **WeatherAPI requests** — Prefer small, focused changes over broad rewrites.
