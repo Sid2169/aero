@@ -382,3 +382,4 @@ If you found this useful, consider giving it a ⭐
 - **environment configuration** — Note any external service limits or required keys.
 - **unit toggle** — Keep the related setup steps aligned with the current scripts.
 - **search flow** — Update the documentation if the visible behavior changes.
+- **7-day forecast** — Use the existing project patterns when extending this area.
