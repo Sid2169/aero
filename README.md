@@ -381,3 +381,4 @@ If you found this useful, consider giving it a ⭐
 - **browser support** — Keep the related setup steps aligned with the current scripts.
 - **environment configuration** — Note any external service limits or required keys.
 - **unit toggle** — Keep the related setup steps aligned with the current scripts.
+- **search flow** — Update the documentation if the visible behavior changes.
