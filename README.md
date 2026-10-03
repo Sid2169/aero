@@ -383,3 +383,4 @@ If you found this useful, consider giving it a ⭐
 - **unit toggle** — Keep the related setup steps aligned with the current scripts.
 - **search flow** — Update the documentation if the visible behavior changes.
 - **7-day forecast** — Use the existing project patterns when extending this area.
+- **caching behavior** — Include a short reproduction step when reporting issues.
