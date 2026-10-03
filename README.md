@@ -384,3 +384,4 @@ If you found this useful, consider giving it a ⭐
 - **search flow** — Update the documentation if the visible behavior changes.
 - **7-day forecast** — Use the existing project patterns when extending this area.
 - **caching behavior** — Include a short reproduction step when reporting issues.
+- **background mapping** — Verify that changing units does not trigger an unnecessary refetch.
