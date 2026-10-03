@@ -386,3 +386,4 @@ If you found this useful, consider giving it a ⭐
 - **caching behavior** — Include a short reproduction step when reporting issues.
 - **background mapping** — Verify that changing units does not trigger an unnecessary refetch.
 - **responsive layout** — Keep commands copy-pasteable for new contributors.
+- **unit toggle** — Check the fallback when geolocation permission is denied.
