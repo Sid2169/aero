@@ -385,3 +385,4 @@ If you found this useful, consider giving it a ⭐
 - **7-day forecast** — Use the existing project patterns when extending this area.
 - **caching behavior** — Include a short reproduction step when reporting issues.
 - **background mapping** — Verify that changing units does not trigger an unnecessary refetch.
+- **responsive layout** — Keep commands copy-pasteable for new contributors.
