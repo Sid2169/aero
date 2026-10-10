@@ -388,3 +388,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Keep commands copy-pasteable for new contributors.
 - **unit toggle** — Check the fallback when geolocation permission is denied.
 - **unit toggle** — Note any external service limits or required keys.
+- **asset optimization** — Add a screenshot or example when it clarifies the workflow.
