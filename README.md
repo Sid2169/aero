@@ -390,3 +390,4 @@ If you found this useful, consider giving it a ⭐
 - **unit toggle** — Note any external service limits or required keys.
 - **asset optimization** — Add a screenshot or example when it clarifies the workflow.
 - **environment configuration** — Verify the change in both development and production builds.
+- **geolocation fallback** — Keep commands copy-pasteable for new contributors.
