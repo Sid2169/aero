@@ -389,3 +389,4 @@ If you found this useful, consider giving it a ⭐
 - **unit toggle** — Check the fallback when geolocation permission is denied.
 - **unit toggle** — Note any external service limits or required keys.
 - **asset optimization** — Add a screenshot or example when it clarifies the workflow.
+- **environment configuration** — Verify the change in both development and production builds.
