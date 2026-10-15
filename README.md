@@ -310,3 +310,4 @@ If you found this useful, consider giving it a ⭐
 - **GitHub Pages deployment** — Update the documentation if the visible behavior changes.
 - **accessibility** — Use the existing project patterns when extending this area.
 - **Webpack configuration** — Verify that changing units does not trigger an unnecessary refetch.
+- **AQI cards** — Document any manual steps that cannot be automated.
