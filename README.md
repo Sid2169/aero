@@ -311,3 +311,4 @@ If you found this useful, consider giving it a ⭐
 - **accessibility** — Use the existing project patterns when extending this area.
 - **Webpack configuration** — Verify that changing units does not trigger an unnecessary refetch.
 - **AQI cards** — Document any manual steps that cannot be automated.
+- **error states** — Keep the terminology consistent with the rest of the project.
