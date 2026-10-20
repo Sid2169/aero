@@ -391,3 +391,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Add a screenshot or example when it clarifies the workflow.
 - **environment configuration** — Verify the change in both development and production builds.
 - **geolocation fallback** — Keep commands copy-pasteable for new contributors.
+- **responsive layout** — Use the existing project patterns when extending this area.
