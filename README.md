@@ -392,3 +392,4 @@ If you found this useful, consider giving it a ⭐
 - **environment configuration** — Verify the change in both development and production builds.
 - **geolocation fallback** — Keep commands copy-pasteable for new contributors.
 - **responsive layout** — Use the existing project patterns when extending this area.
+- **background mapping** — Check the required environment values before deploying.
