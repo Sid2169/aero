@@ -396,3 +396,4 @@ If you found this useful, consider giving it a ⭐
 - **asset optimization** — Include a short reproduction step when reporting issues.
 - **asset optimization** — Check the relevant browser or runtime support.
 - **environment configuration** — Check the fallback when geolocation permission is denied.
+- **7-day forecast** — Include a short reproduction step when reporting issues.
