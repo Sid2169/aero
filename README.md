@@ -394,3 +394,4 @@ If you found this useful, consider giving it a ⭐
 - **responsive layout** — Use the existing project patterns when extending this area.
 - **background mapping** — Check the required environment values before deploying.
 - **asset optimization** — Include a short reproduction step when reporting issues.
+- **asset optimization** — Check the relevant browser or runtime support.
