@@ -11,6 +11,8 @@
 
 [Live Demo](https://sid2169.github.io/aero/) • [Report Bug](https://github.com/Sid2169/aero/issues) • [Request Feature](https://github.com/Sid2169/aero/issues)
 
+**Developed by [Siddhartha Suman](https://sidsingh.vercel.app/)** — visit my portfolio for more projects and experience.
+
 ---
 
 ## 📋 Table of Contents

@@ -51,6 +51,38 @@ html, body {
 }
 
 /* Header */
+.creator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 24px;
+}
+.app-name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.creator-credit {
+  font-size: 13px;
+  color: var(--text-mid);
+}
+.creator-credit a {
+  display: inline-block;
+  padding: 8px 0;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.creator-credit a:hover { color: var(--text-bright); }
+.creator-credit a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 .location-pill {
   display: flex; align-items: center; gap: 8px;
   background: var(--card-bg);
